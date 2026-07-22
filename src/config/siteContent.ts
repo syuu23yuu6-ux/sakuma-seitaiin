@@ -197,7 +197,7 @@ export const siteContent: SiteContent = {
         {
           item: "施術料（一般）",
           price: "¥5,000",
-          note: "目安時間: 約50分（初回は説明等含め約70分）"
+          note: "目安時間: 約50分（初回は説明等含め約60分）"
         }
       ]
     },
@@ -211,7 +211,7 @@ export const siteContent: SiteContent = {
         {
           item: "施術料（学生）",
           price: "¥4,500",
-          note: "目安時間: 約50分（初回は説明等含め約70分）"
+          note: "目安時間: 約50分（初回は説明等含め約60分）"
         }
       ]
     },
@@ -225,7 +225,7 @@ export const siteContent: SiteContent = {
         {
           item: "施術料（マタニティ）",
           price: "¥5,000",
-          note: "目安時間: 約50分（初回は説明等含め約70分）"
+          note: "目安時間: 約50分（初回は説明等含め約60分）"
         }
       ]
     },
