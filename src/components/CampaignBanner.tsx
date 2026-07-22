@@ -8,7 +8,7 @@ export function CampaignBanner() {
     <aside id="campaign" className="py-6 bg-soft/30">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.a 
-          href="#middle-cta" 
+          href="#campaign-section" 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

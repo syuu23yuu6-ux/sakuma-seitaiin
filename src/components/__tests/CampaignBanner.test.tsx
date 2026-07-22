@@ -18,6 +18,6 @@ describe('CampaignBanner Component', () => {
     render(<CampaignBanner />);
     
     const bannerLink = screen.getByRole('link');
-    expect(bannerLink).toHaveAttribute('href', '#middle-cta');
+    expect(bannerLink).toHaveAttribute('href', '#campaign-section');
   });
 });

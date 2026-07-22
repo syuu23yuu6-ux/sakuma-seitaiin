@@ -6,7 +6,7 @@ export function CampaignSection() {
   const { campaignTitle, campaignPrice, campaignDesc, campaignBadge, campaignDeadline } = siteContent.campaign;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 relative overflow-hidden">
+    <section id="campaign-section" className="py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 relative overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
