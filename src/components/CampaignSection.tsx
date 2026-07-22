@@ -57,7 +57,7 @@ export function CampaignSection() {
                   <span className="text-4xl md:text-5xl font-extrabold text-accent font-serif">{campaignPrice}</span>
                   <span className="text-xs text-gray-500 font-semibold">（税込）</span>
                 </div>
-                <p className="text-xs text-gray-400 line-through mb-4">通常料金: ¥7,000</p>
+                <p className="text-xs text-gray-400 line-through mb-4">通常料金: ¥5,000</p>
               </div>
 
               <a

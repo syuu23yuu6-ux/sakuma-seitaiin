@@ -1,0 +1,765 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "heroImages",
+      "name": "スライド画像",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "heroBadge",
+      "name": "上部バッジテキスト",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "heroTitle",
+      "name": "メインタイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "heroDesc",
+      "name": "メイン説明文",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "ctaPrimaryText",
+      "name": "右ボタンの文字",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "ctaPrimaryHref",
+      "name": "右ボタンのリンク先",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "ctaSecondaryText",
+      "name": "左ボタンの文字",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "ctaSecondaryHref",
+      "name": "左ボタンのリンク先",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason1Title",
+      "name": "選ばれる理由1：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason1Desc",
+      "name": "選ばれる理由1：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason1Image",
+      "name": "選ばれる理由1：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason2Title",
+      "name": "選ばれる理由2：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason2Desc",
+      "name": "選ばれる理由2：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason2Image",
+      "name": "選ばれる理由2：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason3Title",
+      "name": "選ばれる理由3：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason3Desc",
+      "name": "選ばれる理由3：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "reason3Image",
+      "name": "選ばれる理由3：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature1Title",
+      "name": "特徴1：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature1DescLine1",
+      "name": "特徴1：説明文(段落1)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature1DescLine2",
+      "name": "特徴1：説明文(段落2)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature1Image",
+      "name": "特徴1：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature2Title",
+      "name": "特徴2：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature2DescLine1",
+      "name": "特徴2：説明文(段落1)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature2DescLine2",
+      "name": "特徴2：説明文(段落2)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature2Image",
+      "name": "特徴2：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature3Title",
+      "name": "特徴3：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature3DescLine1",
+      "name": "特徴3：説明文(段落1)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature3DescLine2",
+      "name": "特徴3：説明文(段落2)",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "feature3Image",
+      "name": "特徴3：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support1Badge",
+      "name": "サポート1：バッジ名",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support1Title",
+      "name": "サポート1：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support1Desc",
+      "name": "サポート1：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support1Image",
+      "name": "サポート1：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support2Badge",
+      "name": "サポート2：バッジ名",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support2Title",
+      "name": "サポート2：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support2Desc",
+      "name": "サポート2：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support2Image",
+      "name": "サポート2：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support3Badge",
+      "name": "サポート3：バッジ名",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support3Title",
+      "name": "サポート3：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support3Desc",
+      "name": "サポート3：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "support3Image",
+      "name": "サポート3：画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "instagramImages",
+      "name": "Instagram表示用画像(最大6枚)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "topicsList",
+      "name": "トピックス(お知らせ)",
+      "kind": "repeater",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "qualificationRate",
+      "name": "検定合格率(数値)",
+      "kind": "number",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "qualificationTitle",
+      "name": "検定合格率：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "qualificationDesc",
+      "name": "検定合格率：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "qualificationGuaranteeTitle",
+      "name": "検定合格保証：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "qualificationGuaranteeDesc",
+      "name": "検定合格保証：説明",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge1Label",
+      "name": "実績バッジ1：ラベル(例：検定合格率)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge1Target",
+      "name": "実績バッジ1：目標数値(例：98)",
+      "kind": "number",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge1Suffix",
+      "name": "実績バッジ1：単位(例：%)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge2Label",
+      "name": "実績バッジ2：ラベル(例：就職率)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge2Target",
+      "name": "実績バッジ2：目標数値(例：100)",
+      "kind": "number",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge2Suffix",
+      "name": "実績バッジ2：単位(例：%)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge3Label",
+      "name": "実績バッジ3：ラベル(例：独立開業実績)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge3Target",
+      "name": "実績バッジ3：目標数値(例：150)",
+      "kind": "number",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "badge3Suffix",
+      "name": "実績バッジ3：単位(例：名以上)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "faqList",
+      "name": "よくある質問一覧",
+      "kind": "repeater",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "refundBadge",
+      "name": "返金保証：バッジテキスト",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "refundTitle",
+      "name": "返金保証：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "refundDesc",
+      "name": "返金保証：説明文",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "campaignTitle",
+      "name": "キャンペーン：タイトル",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "campaignDesc",
+      "name": "キャンペーン：説明文",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "campaignBadge",
+      "name": "キャンペーン：バッジテキスト(例：今月限定)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "campaignDeadline",
+      "name": "キャンペーン：期限テキスト(例：2026年6月30日まで)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "campaignBannerText",
+      "name": "キャンペーン：上部お知らせバナー文言",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "scheduleList",
+      "name": "検定試験スケジュール",
+      "kind": "repeater",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "kidsIntro",
+      "name": "キッズスクール：紹介文",
+      "kind": "textArea",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "kidsCourses",
+      "name": "キッズスクール：コース一覧",
+      "kind": "repeater",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "instagramUrl",
+      "name": "Instagramのリンク先URL",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "lineUrl",
+      "name": "公式LINEのリンク先URL",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "lineQrImage",
+      "name": "公式LINEのQRコード画像",
+      "kind": "media",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "twitterUrl",
+      "name": "Twitter(X)のリンク先URL",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "telNumber",
+      "name": "電話番号",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "address",
+      "name": "住所",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    },
+    {
+      "fieldId": "logoText",
+      "name": "ロゴ用テキスト(例：Re'ally nail school)",
+      "kind": "text",
+      "description": null,
+      "required": false,
+      "textSizeLimitValidation": null,
+      "patternMatchValidation": null,
+      "initialValue": null
+    }
+  ],
+  "customFields": []
+}

@@ -195,12 +195,6 @@ export const siteContent: SiteContent = {
       isAccent: true,
       pricing: [
         {
-          item: "初回カウンセリング料",
-          price: "¥2,000",
-          note: "キャンペーン中につき無料！",
-          highlightNote: true
-        },
-        {
           item: "施術料（一般）",
           price: "¥5,000",
           note: "目安時間: 約50分（初回は説明等含め約70分）"
@@ -215,12 +209,6 @@ export const siteContent: SiteContent = {
       isAccent: false,
       pricing: [
         {
-          item: "初回カウンセリング料",
-          price: "¥2,000",
-          note: "キャンペーン中につき無料！",
-          highlightNote: true
-        },
-        {
           item: "施術料（学生）",
           price: "¥4,500",
           note: "目安時間: 約50分（初回は説明等含め約70分）"
@@ -234,12 +222,6 @@ export const siteContent: SiteContent = {
       desc: "妊婦さん用のバランス整体の施術を行います。肩・腰・骨盤の痛み・こむら返り、寝てしまう心地よい優しい施術で辛い症状を改善致します。安定期に入られたお客様が対象となっており、安定期前の方、流産歴や切迫早産歴がある方はお断りする場合があります。",
       isAccent: false,
       pricing: [
-        {
-          item: "初回カウンセリング料",
-          price: "¥2,000",
-          note: "キャンペーン中につき無料！",
-          highlightNote: true
-        },
         {
           item: "施術料（マタニティ）",
           price: "¥5,000",
@@ -443,7 +425,7 @@ export const siteContent: SiteContent = {
   campaign: {
     campaignTitle: "ホームページ開設記念キャンペーン！",
     campaignPrice: "¥3,000",
-    campaignDesc: "「ホームページを見た」とご予約いただいたご新規様限定！初回通常 7,000円（カウンセリング料 2,000円 + 施術料 5,000円）が【初回限定特別価格 3,000円】（学生は 2,500円）に！",
+    campaignDesc: "「ホームページを見た」とご予約いただいたご新規様限定！初回通常 5,000円が【初回限定特別価格 3,000円】（学生は 2,500円）に！",
     campaignBadge: "初回限定",
     campaignDeadline: "今月末まで",
     campaignBannerText: "全身バランス整体コースが今なら特別価格 3,000円！"

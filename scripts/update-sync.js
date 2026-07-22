@@ -13,7 +13,6 @@ const replacementMenus = `menus: [
       desc: "頭痛、肩こり、腰痛、手足のしびれなど、慢性的な身体の不調を全身のバランスを整えながら根本改善する当院一番人気のコースです。",
       isAccent: true,
       pricing: [
-        { item: "初回カウンセリング料", price: "¥2,000", note: "キャンペーン中につき無料！", highlightNote: true },
         { item: "施術料（一般）", price: "¥5,000", note: "目安時間: 約50分（初回は説明等含め約70分）" }
       ]
     },
@@ -24,7 +23,6 @@ const replacementMenus = `menus: [
       desc: "学生向けのバランス整体コースです。勉強やスポーツによる身体の不調、姿勢の乱れを全身のバランスを整えて改善します。",
       isAccent: false,
       pricing: [
-        { item: "初回カウンセリング料", price: "¥2,000", note: "キャンペーン中につき無料！", highlightNote: true },
         { item: "施術料（学生）", price: "¥4,500", note: "目安時間: 約50分（初回は説明等含め約70分）" }
       ]
     },
@@ -35,7 +33,6 @@ const replacementMenus = `menus: [
       desc: "妊娠中の腰痛や股関節痛、産後の骨盤のゆがみ・開きを、お腹や赤ちゃんに負担のない極めてソフトな技法で整えます。",
       isAccent: false,
       pricing: [
-        { item: "初回カウンセリング料", price: "¥2,000", note: "キャンペーン中につき無料！", highlightNote: true },
         { item: "施術料（マタニティ・産後）", price: "¥6,000", note: "目安時間: 約45分。産後は1ヶ月後から受講可能" }
       ]
     }
@@ -47,12 +44,12 @@ content = content.replace(menuRegex, replacementMenus);
 // 2. campaign価格と詳細を置換 (¥3,980 -> ¥3,000)
 // fallbackContent内
 content = content.replace(/campaignPrice:\s*"¥3,980"/g, 'campaignPrice: "¥3,000"');
-content = content.replace(/通常 8,700円（カウンセリング料 2,200円 \+ 施術料 6,500円）が【初回限定特別価格 3,980円】に！/g, '通常 7,000円（カウンセリング料 2,000円 + 施術料 5,000円）が【初回限定特別価格 3,000円】（学生は 2,500円）に！');
+content = content.replace(/通常 8,700円（カウンセリング料 2,200円 \+ 施術料 6,500円）が【初回限定特別価格 3,980円】に！/g, '通常 5,000円が【初回限定特別価格 3,000円】（学生は 2,500円）に！');
 content = content.replace(/特別価格3,980円！ご予約はこちら/g, '特別価格3,000円！ご予約はこちら');
 
 // finalContent内
 content = content.replace(/campaignPrice:\s*\$\{JSON.stringify\(settings.campaignPrice\s*\|\|\s*"¥3,980"\)\}/g, 'campaignPrice: ${JSON.stringify(settings.campaignPrice || "¥3,000")}');
-content = content.replace(/通常 8,700円（カウンセリング料 2,200円 \+ 施術料 6,500円）が【初回限定特別価格 3,980円】に！/g, '通常 7,000円（カウンセリング料 2,000円 + 施術料 5,000円）が【初回限定特別価格 3,000円】（学生は 2,500円）に！');
+content = content.replace(/通常 8,700円（カウンセリング料 2,200円 \+ 施術料 6,500円）が【初回限定特別価格 3,980円】に！/g, '通常 5,000円が【初回限定特別価格 3,000円】（学生は 2,500円）に！');
 content = content.replace(/特別価格3,980円！ご予約はこちら/g, '特別価格3,000円！ご予約はこちら');
 
 // 3. contactsの住所と駐車場を置換
