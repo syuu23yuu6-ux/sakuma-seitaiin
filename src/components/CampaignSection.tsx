@@ -42,10 +42,12 @@ export function CampaignSection() {
                   <CheckCircle size={18} className="text-primary" />
                   <span>姿勢・セルフケアのアドバイス付き</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-dark font-medium">
-                  <Calendar size={18} className="text-primary" />
-                  <span className="text-red-600 font-bold">期限：{campaignDeadline}</span>
-                </div>
+                {campaignDeadline && (
+                  <div className="flex items-center gap-2.5 text-sm text-dark font-medium">
+                    <Calendar size={18} className="text-primary" />
+                    <span className="text-red-600 font-bold">期限：{campaignDeadline}</span>
+                  </div>
+                )}
               </div>
             </div>
 

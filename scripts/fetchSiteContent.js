@@ -405,11 +405,11 @@ export const fallbackContent = {
     }
   ],
   campaign: {
-    campaignTitle: 'ホームページ開設記念キャンペーン！',
+    campaignTitle: '初回限定キャンペーン！',
     campaignPrice: '¥3,000',
-    campaignDesc: '「ホームページを見た」とご予約いただいたご新規様限定！初回通常 5,000円が【初回限定特別価格 3,000円】（学生は 2,500円）に！',
+    campaignDesc: 'ご新規様限定！初回通常 5,000円が【初回限定特別価格 3,000円】（学生は 2,500円）に！',
     campaignBadge: '初回限定',
-    campaignDeadline: '今月末まで',
+    campaignDeadline: '',
     campaignBannerText: '全身バランス整体コースが今なら特別価格 3,000円！'
   },
   contacts: {
