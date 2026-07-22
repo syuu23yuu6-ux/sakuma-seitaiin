@@ -1,0 +1,655 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const tsTypes = `export interface PricingRow {
+  item: string;
+  price: string;
+  note: string;
+  highlightNote?: boolean;
+}
+
+export interface MenuItem {
+  id: string;
+  title: string;
+  price: string;
+  desc: string;
+  isAccent?: boolean;
+  pricing?: PricingRow[];
+}
+
+export interface StaffItem {
+  name: string;
+  role: string;
+  image: string;
+  profileText: string;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  content: string;
+  thumbnail: string;
+  category: 'お知らせ' | 'ブログ' | '症状別コラム';
+  dateText: string;
+  dateValue: string;
+  relatedLpId?: string;
+}
+
+export interface DictionaryItem {
+  keyword: string;
+  description: string;
+  relatedLinks?: { title: string; url: string }[];
+}
+
+export interface SiteContent {
+  hero: {
+    images: string[];
+    badge: string;
+    title: string;
+    desc: string;
+    ctaPrimary: { text: string; href: string };
+    ctaSecondary: { text: string; href: string };
+  };
+  selectionReasons: {
+    reasons: {
+      iconType: 'award' | 'handshake' | 'clock';
+      title: string;
+      desc: string;
+      image: string;
+    }[];
+  };
+  brandFeatures: {
+    features: {
+      number: string;
+      title: string;
+      desc: string[];
+      image: string;
+      reverse?: boolean;
+    }[];
+  };
+  menus: MenuItem[];
+  staff: StaffItem[];
+  faq: FAQItem[];
+  news: NewsItem[];
+  dictionary: DictionaryItem[];
+  campaign: {
+    campaignTitle: string;
+    campaignPrice: string;
+    campaignDesc: string;
+    campaignBadge: string;
+    campaignDeadline: string;
+    campaignBannerText: string;
+  };
+  contacts: {
+    instagramUrl: string;
+    lineUrl: string;
+    lineQrImage: string;
+    twitterUrl: string;
+    telNumber: string;
+    address: string;
+    parkingInfo: string;
+    logoText: string;
+    footerIntro: string;
+    ctaMicroCopy: string;
+    ctaTrialMicroCopy: string;
+    ekitenRsvUrl: string;
+    mailMagazineUrl: string;
+    googleMapUrl: string;
+    tsuku2Url: string;
+    ekitenUrl: string;
+    suisoIryouUrl: string;
+  };
+}`;
+
+export const fallbackContent = {
+  hero: {
+    images: [
+      'https://sakuma-seitaiin.jp/_img/ja/cms/44736/image/___//',
+      'https://sakuma-seitaiin.jp/_img/ja/cms/44737/image/___//',
+      'https://sakuma-seitaiin.jp/_img/ja/cms/44738/image/___//'
+    ],
+    badge: '土日祝日も営業（第2日曜休） / 予約優先制（飛び込み可） / ネット予約24時間受付',
+    title: 'その慢性的な痛み、\n筋肉のコリ（インナーマッスル）が\n原因かもしれません。',
+    desc: '検査しても異常がない、薬を飲んでも改善しない肩こり・腰痛・頭痛に。さくま整体院では全身の滞っている血流・リンパの流れを改善し、蓄積した長年の疲労を根本から緩めます。',
+    ctaPrimary: { text: 'ネット予約・お問合せ', href: 'https://rsv.ekiten.jp/shop_55884485/?rsv=1' },
+    ctaSecondary: { text: '当院の特徴', href: '#features' }
+  },
+  selectionReasons: {
+    reasons: [
+      {
+        iconType: 'award',
+        title: '辛い症状を短期間で根本改善',
+        desc: '再発予防ケアで良い状態を維持する施術。一時的な緩和ではなく、慢性的なコリ・痛みを根本から整えます。',
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52501/image/___//'
+      },
+      {
+        iconType: 'handshake',
+        title: '完全プライベート空間での施術',
+        desc: '他の方に会わずにリラックスした施術が受けられます。7坪の開放的な空間を独り占めいただけます。',
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52423/image/___//'
+      },
+      {
+        iconType: 'clock',
+        title: '薬や保険治療で改善しない方へ',
+        desc: 'どこに行っても良くならなかったお身体の痛み・しびれ・頭痛に。手技のみで丁寧に緩めます。',
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52440/image/___//'
+      }
+    ]
+  },
+  brandFeatures: {
+    features: [
+      {
+        number: '01',
+        title: '当院の施術の特徴\n1回目の施術から体が楽になるのが実感できる！',
+        desc: [
+          '50分手技のみで、機械は一切使わずに施術致します。',
+          '辛い箇所だけ施術するのではなく、その症状がどこが原因で起きているのか。根本の原因を見つけ出し、ただ治すだけでなく再発しないように施術します。',
+          '皆さんが気づいていない、まだ自覚症状の出ていない隠れた疲労も、表に出てくる前に取り除くので、身体のスッキリ感、楽な時間が長く続きます。',
+          '再発・予防ケアで通われている方が多数いらっしゃいます。',
+          '薬で改善しない、検査しても骨や関節に異常が見当たらない、そんなお身体の痛み・しびれ・頭痛・めまい・吐き気・歩行困難など不快な症状でお悩みの方は一度お気軽にご相談下さい。',
+          '症状の酷い人ほど、一度の施術でのビフォーアフターの差が明確に分かります。'
+        ],
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52501/image/___//'
+      },
+      {
+        number: '02',
+        title: '不快な痛みのないリラックスして受けれる施術！',
+        desc: [
+          '全身の筋膜のバランスを整え身体の歪みを正し、表面のアウターマッスルから、リラクゼーションマッサージでは緩まない深部のインナーマッスルのコリまで丁寧に緩める、骨に負荷を掛けない、揉み返し・揉み癖の起こらない身体に優しい施術です。',
+          '圧迫骨折された方、人工関節に変えられた方、妊婦さん、お子さん方、大勢の方が安心して通われています。',
+          '途中で寝てしまうような、心地よい施術でリラックスして頂きながら不快な症状を改善していきます。'
+        ],
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52423/image/___//',
+        reverse: true
+      },
+      {
+        number: '03',
+        title: '自律神経のバランスが整い自己治癒力もアップ！',
+        desc: [
+          '血流・リンパの循環を改善し流れの良い、自己治癒力の高い健康なお身体に変わっていきますので、今までと同じだけ仕事・家事・育児をしていても前ほど疲れが溜まりにくくなります。',
+          '施術を受ければ受けるほど、長年溜め込んだ慢性的な疲労がどんどん抜けて、お身体が楽な期間も伸びていき、疲れの溜まりにくい身体に変わり、今まで悩まされた症状が、気づけばいつの間にか消失します。',
+          '毎日頭痛薬や湿布を使用していた方が、気づいたら1か月使わずに生活できた。当院ではこんな感じに改善できます。',
+          '自律神経のバランスが整い、不眠症や鬱、季節の変わり目や気圧の変化による体調不良、乗り物酔いが改善される方も多いです。'
+        ],
+        image: 'https://sakuma-seitaiin.jp/_img/ja/cms/52440/image/___//'
+      }
+    ]
+  },
+  menus: [
+    {
+      id: 'balance-general',
+      title: 'さくま式バランス整体（50分）',
+      price: '¥5,000',
+      desc: '皆様のお悩みに合わせたオーダーメイドの施術を致します。不快な痛みのない心地よい施術で辛い症状を改善していきます。揉み返し・揉み癖のおこらない、筋肉を揺らしながら体の深部のインナーマッスルまで緩めてバランスを調整する独自の施術です。',
+      isAccent: true,
+      pricing: [
+        { item: '初回カウンセリング料', price: '¥2,000', note: 'キャンペーン中につき無料！', highlightNote: true },
+        { item: '施術料（一般）', price: '¥5,000', note: '目安時間: 約50分（初回は説明等含め約70分）' }
+      ]
+    },
+    {
+      id: 'balance-student',
+      title: 'さくま式バランス整体 学生（50分）',
+      price: '¥4,500',
+      desc: '勉強の姿勢の肩こり・腰痛・スマホ首・スポーツ障害、なんでもご相談下さい！',
+      isAccent: false,
+      pricing: [
+        { item: '初回カウンセリング料', price: '¥2,000', note: 'キャンペーン中につき無料！', highlightNote: true },
+        { item: '施術料（学生）', price: '¥4,500', note: '目安時間: 約50分（初回は説明等含め約70分）' }
+      ]
+    },
+    {
+      id: 'balance-maternity',
+      title: 'マタニティ整体（50分）',
+      price: '¥5,000',
+      desc: '妊婦さん用のバランス整体の施術を行います。肩・腰・骨盤の痛み・こむら返り、寝てしまう心地よい優しい施術で辛い症状を改善致します。安定期に入られたお客様が対象となっており、安定期前の方、流産歴や切迫早産歴がある方はお断りする場合があります。',
+      isAccent: false,
+      pricing: [
+        { item: '初回カウンセリング料', price: '¥2,000', note: 'キャンペーン中につき無料！', highlightNote: true },
+        { item: '施術料（マタニティ）', price: '¥5,000', note: '目安時間: 約50分（初回は説明等含め約70分）' }
+      ]
+    },
+    {
+      id: 'refresh',
+      title: 'リフレッシュ整体（30分）',
+      price: '¥3,000',
+      desc: 'お試しで受けたい、時間がない、辛いポイントだけを診てほしい、そんな方はこのコースをお勧めします。',
+      isAccent: false,
+      pricing: [
+        { item: '施術料（リフレッシュ）', price: '¥3,000', note: '目安時間: 約30分' }
+      ]
+    }
+  ],
+  staff: [
+    {
+      name: '佐久間 院長',
+      role: '院長 / 整体セラピスト',
+      image: 'https://sakuma-seitaiin.jp/_img/ja/article/1535/image/__2_ffffff/',
+      profileText: '<p>こんにちは、さくま整体院の院長です。私自身、過去に激しい腰痛と闘った経験があり、痛みがあることの辛さや不安を人一倍理解しています。</p><p>当院は「その場しのぎの緩和」ではなく、「痛みの出ないお身体づくり」を目指しています。あなたの身体の痛みがなくなったら、何がしたいですか？その願いを叶えるために、全力で施術に当たらせていただきます。お一人で悩まずに、まずは一度ご相談ください。</p>'
+    }
+  ],
+  faq: [
+    {
+      question: '治療で通う回数のしばりとかはありますか？',
+      answer: 'こちらから週に何回通って下さいとかの強制は一切ありません。皆様のペースで通って頂けます。'
+    },
+    {
+      question: 'カードで支払いはできますか？',
+      answer: '申し訳ございません、当院は現在現金のみの取り扱いとなっております。'
+    },
+    {
+      question: '保険は使えますか？',
+      answer: '当院の施術は保険適用外です。整骨院や接骨院などの保険施術が１０～２０分なのに対して、当院の施術は５０分程お時間を頂きます。機械は一切使わずに、手のみで皆様の辛い症状に合わせた施術を致します。保険治療で改善を感じられない方は、是非一度お試し下さい！初回 ５０分 ５０００円⇒３０００円 当院は、初診料・再診料は頂きません。'
+    },
+    {
+      question: '揉み返しはありますか？',
+      answer: '当院の施術では揉み返しや揉み癖はありません。揉むのではなく筋肉を揺らしながら緩める、体に優しい施術なのでご安心ください。人によっては次の日に好転反応が出る方がいます。好転反応とは、体の悪い部分をよくするために体全体がバランスを整えようとしている反応です。施術を受けた次の日に、なんとなく体がだるかったり、軽い筋肉痛が出たり、反応は個人差があります。だいたい半日から１日で消えて、その後スッキリと体が楽に変化します！'
+    },
+    {
+      question: 'お着替えはあるのでしょうか？',
+      answer: 'ご用意しております。柔らかい服装でしたら、お着替え無しでそのまま施術を受けて頂けます。手ぶらでお気軽にご来院ください。'
+    },
+    {
+      question: '個室で施術を受けるのでしょうか？？',
+      answer: 'お客様おひとりのための広さ七坪程のプライベート整体院です。外の景色が見えて、明るい開放的な空間になっております！外からはベッドが見えないように、目隠しシールを貼っていますので、プライバシーは大丈夫です！ご自身だけのプライベート空間で、思わず寝てしまうような気持ち良い施術で、リラックスできる時間をお過ごい頂けます。'
+    }
+  ],
+  news: [
+    {
+      id: '20220224122209',
+      title: '歩行困難やつまずきやすさの原因とは？骨密度が低い方でも安心の全身バランス整体',
+      content: '<h3>歩いていても脚が前に出にくい、すり足で躓きやすい、階段が上がりにくい、歩行困難でお悩みの方は全身バランス整体をお試し下さい！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 骨密度が低下した骨粗鬆症の方でも安全に受けれる施術！</h4><div><p>筋肉を揺らしながら緩める心地良い施術。</p><p>強い力でグイグイ押さない。</p><p>骨に強い圧は加えない。</p><p>骨密度の低い方、人工関節の方も安心して受けて頂けます。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 全身の筋肉のバランス調整！</h4><div><p>歩くためには全身の筋肉を使います。</p><p>脚だけでなく全身の筋肉バランスを整えて、杖なしでも歩けるように調整していきます。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 定期的なメンテナンスは必要！</h4><div><p>普段の姿勢や癖で筋肉はいつのまにかコリ硬まってきます。</p><p>ラジオ体操やウォーキングでは緩みにくいインナーマッスルのケアは当院にお任せ下さい。</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/51807/image/570_370_2_/',
+      category: '症状別コラム',
+      dateText: '2022.02.24',
+      dateValue: '2022-02-24',
+      relatedLpId: 'lp5'
+    },
+    {
+      id: '20220215174931',
+      title: 'こむら返り・足のむくみの根本原因と自宅でできる解消ストレッチ',
+      content: '<h3>こむら返り、足のむくみでお悩みの方は、当院の全身筋膜アプローチを一度お試し下さい</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 気づかない隠れた疲れのチェック！！</h4><div><p>原因部分は結果であり、検査では結果の部分しか診ません！</p><p>当院の施術は、足の裏から頭まで全身の筋膜の繋がりを緩め、原因箇所を施術していきます。</p><p>下腿のインナーマッスルのヒラメ筋などは、人間の体が前に倒れないように支え続けているために、特に疲労からコリ硬まりやすい箇所です。</p><p>施術中、触られて初めて痛いと気づかれるポイントが多々ありますが、受け終わった後の足の軽さを一度体験してみて下さい！</p><p>なかには、肩を触るだけで足の裏まで痛みが響く人もいらっしゃいます！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 筋肉のケアは早いほど効果があります！</h4><div><p>筋肉のケアは、疲労を溜め込んで筋肉がコリ硬まってる期間が短い人、つまり若い人ほど元に戻るのは早いです！</p><p>年齢を重ねるほどに、癖づいたインナーマッスルを緩めるのはお時間が掛かります。</p><p>ご安心ください。筋肉は年齢に関係なく、施術で疲労を取り除いていけば不快な症状も治まり、健康な状態に戻っていきます。</p><p>当院の施術を繰り返し受けているうちに、自己治癒力の高い体に変化していき、疲労も溜まりにくい体に変化していきます。</p><p>楽になるまでの回数は個人差がありますが、諦めなければ必ず良くなりますよ♪</p><p>重だるさ・違和感が続くときは早めのケアを！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>楽になった後も、また元に戻らないように皆様も日々のケアが必要です。</p><p>日常の中で自分の姿勢が歪んでないか、常に自分自身を客観的に捉えて、縮みやすい部分はストレッチで緩める事も大事です！</p><p>私自身が毎日してるストレッチを指導致しますので、一緒に頑張りましょう！！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/52440/image/___//',
+      category: 'ブログ',
+      dateText: '2022.02.15',
+      dateValue: '2022-02-15',
+      relatedLpId: 'lp5'
+    },
+    {
+      id: '20220214160335',
+      title: '背中の痛み・肩甲骨のコリの原因は猫背？プロが教える筋肉バランス調整法',
+      content: '<h3>慢性的な背中の痛み・肩甲骨周辺の痛み、日常の姿勢からの筋肉のこわばりが原因です！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 何をするにしても手は前に伸ばして作業！</h4><div><p>PC・スマホ、家の家事、何をするのも手は前にして作業しますよね？手を前に伸ばすと連動して肩甲骨も前に引っ張られます。</p><p>そうすると、肩甲骨と背骨を繋ぐ菱形筋は引き延ばされて、その状態が長く続くと多大な負荷が背中に掛かります！</p><p>逆に、肩甲骨と肋骨を繋ぐ前鋸筋は縮みっぱなしで、アンバランスな状態で硬くなってしまいます。</p><p>頭が前に倒れた猫背の姿勢で、さらに背中には負荷が掛かります。</p><p>頭の重みで上に引っ張られ、手の動きで前に引っ張られては背中もしんどくなって当たり前です！！</p><p>特別なことをしていなくても、毎日の姿勢の積み重ねで背中の痛み・肩甲骨の痛みは出てきます！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 伸びきった、縮み切った筋肉のバランスを整える！</h4><div><p>一日中デスクワークでPCされている方、一日中運転のお仕事の方、同じ姿勢が長時間続くほど筋肉にも癖がついて不快な症状は出やすくなります。</p><p>ただ、皆さんが感じている部分は氷山の一角です！！人間の脳は、一番辛い部分を優先的に感じて、２番目・３番目の部分は陰に隠れています！！</p><p>当院の施術は、皆さんが気づいていない隠れた部分も施術していきます。</p><p>痛みがない人でも、触られたら痛い部分たくさんありますので、ほったらかしではダメですよ！！重だるさ・違和感が寝ても取れない、そんな時は早めのケアを！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>姿勢が元に戻っても、また元に戻らないように皆様も日々のケアが必要です。</p><p>日常の中で自分の姿勢が歪んでないか、常に自分自身を客観的に捉えて、縮みやすい部分はストレッチで緩める事も大事です！</p><p>僕自身が毎日してるストレッチを指導致しますので、一緒に頑張りましょう！！</p><p>仕事が大変な方ほど、作業効率を落とさないようにこまめなメンテナンスが必要です！！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/45766/image/570_370_2_/',
+      category: 'ブログ',
+      dateText: '2022.02.14',
+      dateValue: '2022-02-14',
+      relatedLpId: 'lp9'
+    },
+    {
+      id: '20220207141416',
+      title: '四十肩・五十肩が治らない原因とは？急性期と慢性期での正しいアプローチ',
+      content: '<h3>四十肩・五十肩でお悩みの方は、さくま整体院の独自の無痛施術をお試し下さい♪</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 急性期は辛い痛みのケア！</h4><div><p>夜寝ていてシクシク痛む、寝返りしたら痛くて目が覚める、急性期はほんとに辛いです。寝るのに楽な体勢を毎晩探して寝不足になることも。</p><p>急性期は少しでも動かすと痛むので、まず痛みを取る施術をして炎症を抑えていきます。痛いのを無理に動かして不快な思いをさせたりしないのでご安心ください。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 慢性期は可動域の確保！</h4><div><p>夜間痛がなくなってきたら急性期を過ぎたサインです。痛みが出ないようにかばっていた分、筋肉が硬直して動きづらいと思いますので、可動域を広げる施術をして、楽に動くようにゆちゃく・こわばりを緩めていきます。</p><p>ここも無理にグイグイ動かして不快な思いはさせませんのでご安心を。こわばった筋肉を心地よく揺らしながら緩めていく施術ですので、身構えるような不快な痛みはありません。寝てしまわれる方も多いですよ♪ここまでくればもう一歩です。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>四十肩・五十肩は完治しても、疲労の蓄積で何回も発症します！！皆様も日々のケアが必要です。</p><p>日常の中で自分の姿勢が歪んでないか、常に自分自身を客観的に捉えて、縮みやすい部分はストレッチで緩める事も大事です！辛い思いを繰り返さないように一緒に頑張りましょう♪</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/52423/image/___//',
+      category: 'ブログ',
+      dateText: '2022.02.07',
+      dateValue: '2022-02-07',
+      relatedLpId: 'lp6'
+    },
+    {
+      id: '20220206161017',
+      title: 'テニス肘・ゴルフ肘の痛み対策｜指先から肩までのインナーマッスル調整法',
+      content: '<h3>スポーツをしなくても毎日曲げ伸ばしするだけで疲労の蓄積からテニス肘・ゴルフ肘の症状は出てきます！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 指先から肘までのインナーマッスルを緩める！</h4><div><p>最近、握力低下したなぁ、物が握りづらいなぁ、そんな風に感じることはありませんか？手のひらも握るだけで外に広げるストレッチをしておかないと、内側に縮む一方で外側に開かなくなってきます。</p><p>スマホも一日中握りしめていると、若い年齢の方でも前腕のインナーマッスルが癖づいて、内側がどんどん縮み、外側が引き延ばされた状態が続き、肘周辺に痛みが出やすくなってきます。検査しても筋肉のこわばりは分かりません。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 肘から上腕の筋肉を緩める！</h4><div><p>指先のこわばりは、どんどん上に伝わり肘から肩にかけてのインナーマッスルも疲れてきます。前腕・上腕の筋肉も綱引きの要領でバランス保ってますので、前腕・上腕どちらかの筋肉が疲労で縮んでも、中継地点の肘に痛みは出てきます。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 肩から首も緩めて全体の調整！</h4><div><p>肘に痛みが出ている方は、肩首も当然こわばりはありますので、肘を曲げ伸ばしする一連の動作に関わる筋肉はバランスを整えるために全て緩めておきます。</p><p>痛みが治まってきても、何もしなければまた内側の屈筋が縮んで肘に痛みが出やすくなりますので、日々のストレッチで柔軟性を高めるのも大事です。</p><p>日常の中で自分の姿勢が歪んでないか、常に自分自身を客観的に捉えて、縮みやすい部分はストレッチで緩める事も大事です！私自身が日々行っているストレッチを指導致しますので、一緒に頑張りましょう♪</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/52501/image/___//',
+      category: 'ブログ',
+      dateText: '2022.02.06',
+      dateValue: '2022-02-06',
+      relatedLpId: 'lp5'
+    },
+    {
+      id: '20220204103802',
+      title: '股関節の痛みの原因は骨盤の歪み？人工関節手術を避けるインナーマッスルアプローチ',
+      content: '<h3>日常の姿勢や癖で股関節周辺の筋肉がこわばり、痛みの原因になります！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 検査して骨に異常が無ければ筋肉のこわばりが痛みの原因！</h4><div><p>検査しても骨や関節には特に異常は見当たらない、電気治療でも効果はない、シップを貼っても痛みは変わらず被れるばかり…。なかには人口関節に変えたけど、痛みや膝のツッパリ感が取れない方も…。</p><p>骨・関節が原因なら、人工関節に変えたら痛みがなくなるはずですが、実際なくならない方が大勢いらっしゃいます。何故なら、股関節の痛みの原因の多くは、股関節を動かすための筋肉の長年の使い痛み、疲労を溜め込み縮んだ慢性的なこわばりであるケースが多いです！！検査しても筋肉のこわばり具合は写りません。検査で骨に異常がなければ、一度筋肉のメンテナンスを試してみませんか？</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 自然に出てきた痛みは日常生活の癖が原因！</h4><div><p>自転車に乗っていて、停まる時は左足が必ず地面に着く。横断歩道で立ち止まって、歩き始めは右足から。気づいたら右足を組んでいる。</p><p>毎日と同じ動きの繰り返しで、疲れやすい筋肉、あまり動かさない筋肉、過労気味な部分や運動不足の部分、インナーマッスルもバランスが崩れてきます。しかし、ほとんどの方が痛み・痺れが出てから慌てて来院されます。特に股関節や肩関節など、よく動かす関節周辺は使い痛めしやすいので、早めのメンテナンスをお勧めします！鍛えて痛みが治まる事はありません。</p><p>車でも４本のタイヤの空気圧が均一でないと真っ直ぐは走りません。人間の体も同じ、前後左右の筋バランスが大事なのです！バランスさえ取れたら、筋力のない方でも杖なしで歩けます！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: インナーマッスル専門の当院にお任せ下さい！</h4><div><p>人工関節を勧められても諦めずに、まずは当院にご相談ください！手術は最終手段です！！</p><p>股関節の痛み・骨盤の痛みだけに限らず、検査で骨・関節に異常が無い、なかなか改善しない体のお悩みに対応させて頂きます。施術後は、股関節を動かす際の痛みや引っかかる感じがなく動かしやすい、可動域が広がった、長時間座っていても痛くない、体がどんどん楽に変化していきます♪不快な痛みのない気持ちいい施術で、体が楽に根本的に変化していきますよ！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/44736/image/___//',
+      category: 'ブログ',
+      dateText: '2022.02.04',
+      dateValue: '2022-02-04',
+      relatedLpId: 'lp10'
+    },
+    {
+      id: '20220201092840',
+      title: '坐骨神経痛・お尻のしびれを根本改善｜梨状筋症候群の原因とセルフケア',
+      content: '<h3>坐骨神経痛の原因は、お尻の梨状筋のこわばりが坐骨神経を締め付けた、梨状筋症候群が多いです！！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: なんで痛み・しびれが出るの？</h4><div><p>座骨神経はお尻の仙骨から出てきた抹消神経が束になり、足に向かって伸びています。仙骨の下を通る坐骨神経周辺の筋肉が緩んでいると問題ありませんが、梨状筋という筋肉が硬くなると、座っているだけで挟まれて強い圧を受け、痛み・しびれが出てきます！！この梨状筋を含め、座骨神経の通り道でこわばっている部分を緩めると、痛み・しびれは改善します！！坐骨神経痛、足のしびれなら、当院の得意分野です！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 辛い症状に対する理解度！</h4><div><p>痛み・痺れを経験したことのない施術者は、本当に患者さんの辛さを分かりません！！そんな人が, 患者さんに寄り添った施術ができるのでしょうか？私自身、28歳の時に腰からお尻にかけての辛い痛み・痺れを経験し、整形や整骨院では良くなりませんでした。</p><p>それらの経験から、できるだけ皆様にも不快な症状から早く抜け出していただくための、より効果が出る、できるだけ痛みのない施術を心がけております。責任を持って全力で施術させていただきます！！上向きで寝ても足がしびれない！仕事で長時間の立ち仕事、デスクワークでも足がしびれない！車の運転が楽！色んなお声を頂いております！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>坐骨神経痛、足のしびれが取れた後は、ぶり返さないように皆様も日々のケアが必要です。僕自身が毎日してるストレッチを指導致しますので、一緒に頑張りましょう！！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/52423/image/___//',
+      category: 'ブログ',
+      dateText: '2022.02.01',
+      dateValue: '2022-02-01',
+      relatedLpId: 'lp4'
+    },
+    {
+      id: '20220131174924',
+      title: '脊柱管狭窄症・すべり症の痛みとしびれを改善する背骨インナーマッスル施術',
+      content: '<h3>脊柱管狭窄症・すべり症からくる痛み・しびれ、背骨を支えるインナーマッスルを緩めることで楽になります！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 脊柱管狭窄症・すべり症は毎日の生活習慣から！</h4><div><p>毎日の生活習慣で、長い年月を掛けてインナーマッスルは癖づいていき、頑固なこわばりで骨が引っ張られて体は歪んでいきます！！正しい姿勢を取っていても、３０分もすれば筋肉はこわばり始めます。</p><p>テレビを観ていてCMでトイレに行こうと立ち上がる時にあいたたたっ！それが筋肉のこわばりです。少しの時間のこわばりなら、動き出すとすぐほぐれて痛くなくなりますが、長い年月をかけてのこわばりはなかなか緩んでくれません。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 筋肉のケアは早いほど効果があります！</h4><div><p>筋肉のケアは、筋肉が硬まってる期間が短い人、つまり若い人ほど歪みが元に戻るのは早いです！年齢を重ねるほどに、癖づいたインナーマッスルを緩めるのはお時間が掛かります。時間は個人差がありますが、筋肉は年齢に関係なく反応してくれます！！痛みがなくても、姿勢・歪みが気になる方は早めのケアを！！脊柱管狭窄症・すべり症が出てからではご自身が辛い思いをするだけですよ！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>脊柱管狭窄症・すべり症が楽になっても、また元に戻らないように皆様も日々のケアが必要です。日常の中で自分の姿勢が歪んでないか、常に自分自身を客観的に捉えて、縮みやすい部分は少しでもストレッチで緩める事も大事です！</p><p>僕自身が毎日してるストレッチを指導致しますので、一緒に頑張りましょう！！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/45766/image/570_370_2_/',
+      category: 'ブログ',
+      dateText: '2022.01.31',
+      dateValue: '2022-01-31',
+      relatedLpId: 'lp2'
+    },
+    {
+      id: '20220130134704',
+      title: '膝の痛みは筋力不足が原因ではない？変形性膝関節症を防ぐ筋肉調整',
+      content: '<h3>膝の痛みは年齢に関係なく座りっぱなしの時間が長いと、脚の筋肉のこわばりから出てきます！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 膝痛は長年の姿勢・癖の積み重ねから！</h4><div><p>立ち止まっている時、人は大体の方が休めのポーズで、重心を右か左に預けて斜めに立っています。そうすると、体重を預かる軸足側の負担が増し、ただこれだけでも何十年と続けていると、左右の足の疲れ具合や筋肉の張りも左右差がついてきます。</p><p>筋肉が硬くなった側が関節の可動域も縮まり、硬くなった筋肉は伸び縮みしにくくなりますので、体重がかかっただけで痛み出します。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 膝関節に繋がる筋肉を緩める！</h4><div><p>当院では、機械は一切使いません。手だけで頑固に硬まった膝周りの筋肉を緩めていきます。触られて初めて痛気持ちいいと感じる隠れたポイントもあって施術を受けられた方は驚かれます！</p><p>できるだけ痛みを感じないように、時間をかけて丁寧に緩めていきますのでご安心下さい！杖に頼っていると、体が杖をついている側にどんどん傾いていきますので、膝だけでなく全身のバランスも診ていきます！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>痛みが取れるまでは、集中して施術を受けて頂いた方がより効果は高まります。楽になった後でも月1くらいのケア、あとはご自身でも簡単なストレッチで緩んだ筋肉を維持することは大切です！一度出た痛みは放っておいても、自然には完治しません！</p><p>膝の痛みで膝関節を動かすインナーマッスルを触られたことのない方は、ぜひ一度当院の施術をお試し下さい。施術後の脚の上がり方、関節の滑らかな動きに驚かれると思います！筋肉もメンテナンスさえしておけば、鍛えなくても年齢に関係なくいつまでも痛みなく動きますよ！！</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/52440/image/___//',
+      category: 'ブログ',
+      dateText: '2022.01.30',
+      dateValue: '2022-01-30',
+      relatedLpId: 'lp3'
+    },
+    {
+      id: '20220129193519',
+      title: '慢性腰痛・ぎっくり腰を繰り返す方へ｜インナーマッスルを揺らして緩める根本施術',
+      content: '<h3>腰痛・ぎっくり腰の原因となる腰のインナーマッスルを緩める！筋肉を揺らしながら緩める心地良い施術です！</h3><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント1: 一人ひとりに合わせた施術！</h4><div><p>痛いのを我慢して治るのと、気持ちよくリラックスして治るのと、あなたはどちらを選びますか？当院には強引な施術はありませんのでご安心を♪</p><p>私自身も、朝の洗面所での前屈みで一度ぎっくり腰を経験しました。あの痛みをもう二度と経験したくないので、それ以降は日々腰のケアを行っており、ぎっくり腰ももう８年ほど出ていません。それらの経験から、できるだけ皆様にも不快な症状から早く抜け出していただき、再発のない、より効果が出る、リラックスできてストレスを感じない、皆様の痛みに寄り添った施術を心がけております。</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント2: 辛い症状に対する理解度！</h4><div><p>痛み・痺れを経験したことのない施術者は、本当に患者さんの辛さを分かりません！！その点私自身、四十肩・ぎっくり腰・手足の痺れ等色々経験できたのは逆に整体師人生においてプラスになったと思っております。辛い症状を治せばそれでいい、そうではなく辛い経験を共有できるからこそ、親身な施術ができると私自身は考えて独立開業致しました。ここにたどり着いた皆様が、1日でも早く痛み・痺れから解放されますように、全力で施術させていただきます！！</p></div></div><div class="mt-6 border-t pt-4"><h4 class="text-lg font-bold text-dark mb-2">ポイント3: 二人三脚の施術！</h4><div><p>痛みが取れた後は、再発のないように皆様も日々のケアが必要です。僕自身が毎日してるストレッチを指導致しますので、もう二度と不快な思いをせずに済むように、一緒に頑張りましょう♪</p></div></div>',
+      thumbnail: 'https://sakuma-seitaiin.jp/_img/ja/cms/44736/image/___//',
+      category: 'ブログ',
+      dateText: '2022.01.29',
+      dateValue: '2022-01-29',
+      relatedLpId: 'lp2'
+    }
+  ],
+  dictionary: [
+    {
+      keyword: '肩こり',
+      description: '<p>首から肩や背中にかけての筋肉が強ばり、だるさや重さ･疲労感･痛みなど様々な症状を起こすことを肩こりと言います。更に同じ体勢で長時間過ごしたり、精神的ストレスを感じたりすると血流が悪くなり症状が出やすくなります。PC・スマホの前屈みの姿勢で頭の重みが肩や背中に倍増して掛かることも、大きな原因になります。</p>'
+    },
+    {
+      keyword: '腰痛',
+      description: '<p>腰痛とは病名では無く腰から来る痛みや張りなどを不快に感じることの総称を指します。年齢を重ねる毎になりやすく、生活環境や生活習慣による肉物理的ストレス又は精神的ストレスが症状に深く関与しています。</p>'
+    },
+    {
+      keyword: '膝痛',
+      description: '<p>主に膝関節の周辺が痛くなる病気の事を膝痛と言います。平らな場所や階段･段差の昇り降りなどの際に痛みが生じ、膝の内側や裏側など痛みの発生条件や発生箇所は人それぞれ違います。酷い時は寝ている時にも起こります。</p>'
+    },
+    {
+      keyword: '坐骨神経痛',
+      description: '<p>腰から足にかけて伸びている坐骨神経が様々な原因により圧迫･刺激を受けることにより痛みや痺れが起こる症状を指します。多くの場合腰痛を発症し、次にお尻や太もものの後ろ･すね･足先など徐々に症状が現れます。</p>'
+    },
+    {
+      keyword: 'しびれ',
+      description: '<p>しびれには大まかに3種類あり感覚低下や運動麻痺･異常感覚があります。原因として脳や脊髄･手足の末梢神経などの病気により引き起こされます。しびれを起こす状況は様々ありますが慢性的に続くものは受診をおすすめします。</p>'
+    },
+    {
+      keyword: '四十肩',
+      description: '<p>関節痛の一種です。40代で症状がでれば四十肩、50代で症状がでれば五十肩と呼びます。加齢によるものが多く肩を上げたり、水平に保ったりするのが難しくなります。筋肉や腱の柔軟性が失われスムーズに動かなくなることが要因です。</p>'
+    },
+    {
+      keyword: '頭痛',
+      description: '<p>その名の通り頭が痛くなることを指します。日常よく起こる頭痛は、ストレス性頭痛や緊張性頭痛、片頭痛などが挙げられます。首や肩こりが前兆として表れることもあり、片頭痛の誘因にもなっています。</p>'
+    },
+    {
+      keyword: 'ストレートネック',
+      description: '<p>首の骨が正常な場合｢く｣の字にカーブしているのに対して、真っすぐになってしまっている状態のことを指します。スマホやパソコン作業でうつむいた状態が続くと首に負担をかけ、カーブが失われていきます。</p>'
+    },
+    {
+      keyword: '姿勢',
+      description: '<p>体が動いている状態、静止している状態に関わらず体をその状態のまま保つことを指します。また、物事に対する心の持ち方や行動の仕方を指すこともあります。心構えや態度、構え、かっこうのことを指します。</p>'
+    },
+    {
+      keyword: '骨盤矯正',
+      description: '<p>骨盤の歪みを元の位置に戻すこと骨盤矯正といいます。女性の骨盤は歪みやすく、年齢とともに開いていきます。日常生活の姿勢の悪さなども起因しており、骨盤矯正をすることにより、姿勢が良くなることも期待できます。</p>'
+    }
+  ],
+  campaign: {
+    campaignTitle: 'ホームページ開設記念キャンペーン！',
+    campaignPrice: '¥3,000',
+    campaignDesc: '「ホームページを見た」とご予約いただいたご新規様限定！初回通常 7,000円（カウンセリング料 2,000円 + 施術料 5,000円）が【初回限定特別価格 3,000円】（学生は 2,500円）に！',
+    campaignBadge: '初回限定',
+    campaignDeadline: '今月末まで',
+    campaignBannerText: '全身バランス整体コースが今なら特別価格 3,000円！'
+  },
+  contacts: {
+    instagramUrl: 'https://instagram.com',
+    lineUrl: 'https://line.me',
+    lineQrImage: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=300',
+    twitterUrl: 'https://twitter.com',
+    telNumber: '050-8881-4880',
+    address: '〒567-0876 大阪府茨木市天王2-9-12 スミエール21 1階',
+    parkingInfo: '無料駐車場1台あり（店舗から北東に約50m先、「グッドバイク」西側にある駐車場の2番）',
+    logoText: 'さくま整体院',
+    footerIntro: '慢性的な筋肉のコリを根本から徹底的に緩める。\nお身体の不調を改善し、健康な日常生活をサポートします。',
+    ctaMicroCopy: '＼スマホで簡単30秒予約！／',
+    ctaTrialMicroCopy: 'お気軽にご相談ください',
+    ekitenRsvUrl: 'https://rsv.ekiten.jp/shop_55884485/?rsv=1',
+    mailMagazineUrl: 'https://home.tsuku2.jp/mlReg/?scd=0000161402',
+    googleMapUrl: 'https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA',
+    tsuku2Url: 'https://tsuku2.jp/sakuma',
+    ekitenUrl: 'https://www.ekiten.jp/shop_55884485/',
+    suisoIryouUrl: 'https://suiso-iryou.com/'
+  }
+};
+
+// microCMS API レスポンスを siteContent 形式にマッピングする処理
+function mapApiResponse(settings, menus, staff, faq, news, dictionary) {
+  // 1. Hero
+  const hero = {
+    images: (settings.heroImages || []).map(img => img.url),
+    badge: settings.heroBadge || '',
+    title: settings.heroTitle || '',
+    desc: settings.heroDesc || '',
+    ctaPrimary: { text: settings.ctaPrimaryText || '', href: settings.ctaPrimaryHref || '' },
+    ctaSecondary: { text: settings.ctaSecondaryText || '', href: settings.ctaSecondaryHref || '' }
+  };
+
+  // 2. 選ばれる理由
+  const selectionReasons = {
+    reasons: [
+      {
+        iconType: 'award',
+        title: settings.reason1Title || '',
+        desc: settings.reason1Desc || '',
+        image: settings.reason1Image?.url || ''
+      },
+      {
+        iconType: 'handshake',
+        title: settings.reason2Title || '',
+        desc: settings.reason2Desc || '',
+        image: settings.reason2Image?.url || ''
+      },
+      {
+        iconType: 'clock',
+        title: settings.reason3Title || '',
+        desc: settings.reason3Desc || '',
+        image: settings.reason3Image?.url || ''
+      }
+    ]
+  };
+
+  // 3. 特徴
+  const brandFeatures = {
+    features: [
+      {
+        number: '01',
+        title: settings.feature1Title || '',
+        desc: [settings.feature1DescLine1 || '', settings.feature1DescLine2 || ''].filter(Boolean),
+        image: settings.feature1Image?.url || ''
+      },
+      {
+        number: '02',
+        title: settings.feature2Title || '',
+        desc: [settings.feature2DescLine1 || '', settings.feature2DescLine2 || ''].filter(Boolean),
+        image: settings.feature2Image?.url || '',
+        reverse: true
+      },
+      {
+        number: '03',
+        title: settings.feature3Title || '',
+        desc: [settings.feature3DescLine1 || '', settings.feature3DescLine2 || ''].filter(Boolean),
+        image: settings.feature3Image?.url || ''
+      }
+    ]
+  };
+
+  // 4. メニュー
+  const mappedMenus = (menus.contents || []).map(item => ({
+    id: item.menuId,
+    title: item.title,
+    price: item.price,
+    desc: item.desc,
+    isAccent: item.isAccent,
+    pricing: item.pricing || []
+  }));
+
+  // 5. スタッフ
+  const mappedStaff = (staff.contents || []).map(item => ({
+    name: item.name,
+    role: item.role,
+    image: item.image?.url || '',
+    profileText: item.profileText
+  }));
+
+  // 6. FAQ
+  const mappedFaq = (faq.contents || []).map(item => ({
+    question: item.question,
+    answer: item.answer
+  }));
+
+  // 7. News
+  const mappedNews = (news.contents || []).map(item => {
+    let dateText = item.dateText || '';
+    let dateValue = item.dateValue || '';
+    if (item.createdAt) {
+      const date = new Date(item.createdAt);
+      const y = date.getFullYear();
+      const m = date.getMonth() + 1;
+      const d = date.getDate();
+      dateText = `${y}.${m}.${d}`;
+      const mm = m < 10 ? `0${m}` : m;
+      const dd = d < 10 ? `0${d}` : d;
+      dateValue = `${y}-${mm}-${dd}`;
+    }
+
+    return {
+      id: item.id || item.newsId,
+      title: item.title,
+      content: item.content,
+      thumbnail: item.thumbnail?.url || '',
+      category: item.category || 'ブログ',
+      dateText,
+      dateValue,
+      relatedLpId: item.relatedLpId
+    };
+  });
+
+  // 8. Dictionary
+  const mappedDictionary = (dictionary.contents || []).map(item => ({
+    keyword: item.keyword,
+    description: item.description,
+    relatedLinks: item.relatedLinks || []
+  }));
+
+  // 9. Campaign
+  const campaign = {
+    campaignTitle: settings.campaignTitle || '',
+    campaignPrice: settings.campaignPrice || '',
+    campaignDesc: settings.campaignDesc || '',
+    campaignBadge: settings.campaignBadge || '',
+    campaignDeadline: settings.campaignDeadline || '',
+    campaignBannerText: settings.campaignBannerText || ''
+  };
+
+  // 10. Contacts
+  const contacts = {
+    instagramUrl: settings.instagramUrl || '',
+    lineUrl: settings.lineUrl || '',
+    lineQrImage: settings.lineQrImage?.url || '',
+    twitterUrl: settings.twitterUrl || '',
+    telNumber: settings.telNumber || '',
+    address: settings.address || '',
+    parkingInfo: settings.parkingInfo || '',
+    logoText: settings.logoText || '',
+    footerIntro: settings.footerIntro || '',
+    ctaMicroCopy: settings.ctaMicroCopy || '',
+    ctaTrialMicroCopy: settings.ctaTrialMicroCopy || '',
+    ekitenRsvUrl: 'https://rsv.ekiten.jp/shop_55884485/?rsv=1',
+    mailMagazineUrl: 'https://home.tsuku2.jp/mlReg/?scd=0000161402',
+    tsuku2Url: 'https://tsuku2.jp/sakuma',
+    ekitenUrl: 'https://www.ekiten.jp/shop_55884485/',
+    suisoIryouUrl: 'https://suiso-iryou.com/'
+  };
+
+  return {
+    hero,
+    selectionReasons,
+    brandFeatures,
+    menus: mappedMenus.length > 0 ? mappedMenus : fallbackContent.menus,
+    staff: mappedStaff.length > 0 ? mappedStaff : fallbackContent.staff,
+    faq: mappedFaq.length > 0 ? mappedFaq : fallbackContent.faq,
+    news: mappedNews.length > 0 ? mappedNews : fallbackContent.news,
+    dictionary: mappedDictionary.length > 0 ? mappedDictionary : fallbackContent.dictionary,
+    campaign,
+    contacts
+  };
+}
+
+export async function runSync() {
+  const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
+  const apiKey = process.env.MICROCMS_API_KEY;
+  const outputPath = process.env.CMS_OUTPUT_PATH || path.join(__dirname, '../src/config/siteContent.ts');
+
+  let siteContentData = fallbackContent;
+
+  if (serviceDomain && apiKey) {
+    console.log('Fetching content from microCMS...');
+    try {
+      const headers = { 'X-MICROCMS-API-KEY': apiKey };
+
+      const [settingsRes, menusRes, staffRes, faqRes, newsRes, dictionaryRes] = await Promise.all([
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/site-settings`, { headers }).then(r => r.json()),
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/menus`, { headers }).then(r => r.json()),
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/staff`, { headers }).then(r => r.json()),
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/faq`, { headers }).then(r => r.json()),
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/news`, { headers }).then(r => r.json()),
+        fetch(`https://${serviceDomain}.microcms.io/api/v1/dictionary`, { headers }).then(r => r.json())
+      ]);
+
+      siteContentData = mapApiResponse(settingsRes, menusRes, staffRes, faqRes, newsRes, dictionaryRes);
+      console.log('Successfully fetched content from microCMS.');
+    } catch (error) {
+      console.error('Failed to fetch from microCMS, using fallback content:', error.message);
+      siteContentData = fallbackContent;
+    }
+  } else {
+    console.log('microCMS environment variables not set. Using fallback content.');
+  }
+
+  try {
+    // オブジェクトを整形された文字列にし、キーのダブルクォーテーションを除去して JavaScript / TypeScript の生オブジェクト形式に近づける
+    const contentString = JSON.stringify(siteContentData, null, 2).replace(/"([^"]+)":/g, '$1:');
+    const fileContent = '// siteContent.ts - サイト全体の文言、画像、リンク、構成データを一元管理する設定ファイル\n' +
+'// ※ このファイルは microCMS 連携スクリプトによって自動生成されます。\n\n' +
+tsTypes + '\n\n' +
+'export const siteContent: SiteContent = ' + contentString + ';\n';
+
+    fs.writeFileSync(outputPath, fileContent, 'utf8');
+    console.log('Successfully generated siteContent.ts!');
+  } catch (err) {
+    console.error('Error writing siteContent.ts:', err);
+    throw err;
+  }
+}
+
+// スクリプトが直接実行された場合に main 処理を走らせる
+if (process.argv[1] && process.argv[1].endsWith('fetchSiteContent.js')) {
+  runSync().catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+}

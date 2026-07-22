@@ -1,0 +1,881 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "heroImages",
+      "name": "スライド画像一覧（一番上）",
+      "kind": "mediaList",
+      "required": false
+    },
+    {
+      "fieldId": "heroBadge",
+      "name": "ヒーローエリア上部バッジ",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "heroTitle",
+      "name": "メインタイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "heroDesc",
+      "name": "メイン説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "ctaPrimaryText",
+      "name": "右側CTAボタン文字",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "ctaPrimaryHref",
+      "name": "右側CTAボタンリンク先",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "ctaSecondaryText",
+      "name": "左側CTAボタン文字",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "ctaSecondaryHref",
+      "name": "左側CTAボタンリンク先",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "topics",
+      "name": "Topics",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-04T18:07:20.698Z"
+      ]
+    },
+    {
+      "fieldId": "kidsCourses",
+      "name": "キッズスクール：コース一覧",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-04T18:24:50.958Z"
+      ]
+    },
+    {
+      "fieldId": "qualificationRate",
+      "name": "検定合格率(数値)",
+      "kind": "number",
+      "required": false
+    },
+    {
+      "fieldId": "qualificationTitle",
+      "name": "合格率エリア：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "qualificationDesc",
+      "name": "合格率エリア：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "qualGuaranteeTitle",
+      "name": "Qualification Guarantee Title",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "qualGuaranteeDesc",
+      "name": "Qualification Guarantee Description",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "badge1Label",
+      "name": "実績バッジ1：ラベル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "badge1Target",
+      "name": "実績バッジ1：数値",
+      "kind": "number",
+      "required": false
+    },
+    {
+      "fieldId": "badge1Suffix",
+      "name": "実績バッジ1：単位",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "badge2Label",
+      "name": "実績バッジ2：ラベル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "badge2Target",
+      "name": "実績バッジ2：数値",
+      "kind": "number",
+      "required": false
+    },
+    {
+      "fieldId": "badge2Suffix",
+      "name": "実績バッジ2：単位",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "badge3Label",
+      "name": "実績バッジ3：ラベル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "badge3Target",
+      "name": "実績バッジ3：数値",
+      "kind": "number",
+      "required": false
+    },
+    {
+      "fieldId": "badge3Suffix",
+      "name": "実績バッジ3：単位",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "faqList",
+      "name": "よくある質問一覧",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-04T18:12:50.874Z"
+      ]
+    },
+    {
+      "fieldId": "refundBadge",
+      "name": "返金保証：バッジ",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "refundTitle",
+      "name": "返金保証：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "refundDesc",
+      "name": "返金保証：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "campaignTitle",
+      "name": "特別キャンペーン：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "campaignDesc",
+      "name": "特別キャンペーン：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "campaignBadge",
+      "name": "特別キャンペーン：バッジ",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "campaignDeadline",
+      "name": "特別キャンペーン：期限日",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "campBannerText",
+      "name": "Campaign Banner Text",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "scheduleList",
+      "name": "検定試験スケジュール一覧",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-04T18:15:36.997Z"
+      ]
+    },
+    {
+      "fieldId": "kidsIntro",
+      "name": "キッズスクール：紹介文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "instagramUrl",
+      "name": "公式InstagramのURL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "lineUrl",
+      "name": "公式LINEの宛先URL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "lineQrImage",
+      "name": "公式LINEのQRコード画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "twitterUrl",
+      "name": "公式Twitter of URL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "telNumber",
+      "name": "お問合せ電話番号",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "address",
+      "name": "スクールの住所",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "logoText",
+      "name": "スクールロゴ文字",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "kidsCourse",
+      "name": "Kids Course",
+      "kind": "custom",
+      "required": false,
+      "customFieldCreatedAt": "2026-06-04T18:24:50.958Z"
+    },
+    {
+      "fieldId": "reason1Title",
+      "name": "選ばれる理由1：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "reason1Desc",
+      "name": "選ばれる理由1：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "reason1Image",
+      "name": "選ばれる理由1：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "reason2Title",
+      "name": "選ばれる理由2：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "reason2Desc",
+      "name": "選ばれる理由2：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "reason2Image",
+      "name": "選ばれる理由2：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "reason3Title",
+      "name": "選ばれる理由3：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "reason3Desc",
+      "name": "選ばれる理由3：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "reason3Image",
+      "name": "選ばれる理由3：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "feature1Title",
+      "name": "特徴1：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "feature1DescLine1",
+      "name": "特徴1：説明文1行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature1DescLine2",
+      "name": "特徴1：説明文2行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature1Image",
+      "name": "特徴1：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "feature2Title",
+      "name": "特徴2：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "feature2DescLine1",
+      "name": "特徴2：説明文1行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature2DescLine2",
+      "name": "特徴2：説明文2行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature2Image",
+      "name": "特徴2：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "feature3Title",
+      "name": "特徴3：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "feature3DescLine1",
+      "name": "特徴3：説明文1行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature3DescLine2",
+      "name": "特徴3：説明文2行目",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "feature3Image",
+      "name": "特徴3：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "support1Badge",
+      "name": "サポート1：バッジ名",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support1Title",
+      "name": "サポート1：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support1Desc",
+      "name": "サポート1：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "support1Image",
+      "name": "サポート1：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "support2Badge",
+      "name": "サポート2：バッジ名",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support2Title",
+      "name": "サポート2：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support2Desc",
+      "name": "サポート2：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "support2Image",
+      "name": "サポート2::画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "support3Badge",
+      "name": "サポート3：バッジ名",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support3Title",
+      "name": "サポート3：タイトル",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "support3Desc",
+      "name": "サポート3：説明文",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "support3Image",
+      "name": "サポート3：画像",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "fieldId": "reasonsGridList",
+      "name": "選ばれる6つの理由(グリッド)",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-05T10:33:00.436Z"
+      ]
+    },
+    {
+      "fieldId": "courseDiagnosisList",
+      "name": "おすすめコース診断一覧",
+      "kind": "repeater",
+      "required": false,
+      "customFieldCreatedAtList": [
+        "2026-06-05T10:37:27.905Z"
+      ]
+    },
+    {
+      "fieldId": "campusName",
+      "name": "校舎名",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "campusAccess",
+      "name": "最寄り駅からのアクセス経路",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "footerIntro",
+      "name": "フッター紹介文",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "ctaMicroCopy",
+      "name": "体験会CTAマイクロコピー",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "ctaRequestMicroCopy",
+      "name": "資料請求CTAマイクロコピー",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "ctaTrialMicroCopy",
+      "name": "体験会ボタンマイクロコピー",
+      "kind": "text",
+      "required": false
+    }
+  ],
+  "customFields": [
+    {
+      "createdAt": "2026-06-04T18:07:20.698Z",
+      "fieldId": "topic",
+      "name": "Topics",
+      "fields": [
+        {
+          "idValue": "9CCAUaE-iq",
+          "fieldId": "itemId",
+          "name": "Item ID",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "Pt9qJ5pgYr",
+          "fieldId": "image",
+          "name": "Image",
+          "kind": "media",
+          "required": false
+        },
+        {
+          "idValue": "S331eVzRZ1",
+          "fieldId": "dateText",
+          "name": "Date Text",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "oTLdlexWQr",
+          "fieldId": "badge",
+          "name": "Badge",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "lCFem5jB9X",
+          "fieldId": "isAccentBadge",
+          "name": "Is Accent Badge",
+          "kind": "boolean",
+          "required": false
+        },
+        {
+          "idValue": "0JBaQUxB5d",
+          "fieldId": "title",
+          "name": "Title",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "VD9P9ub8v6",
+          "fieldId": "link",
+          "name": "Link",
+          "kind": "text",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "9CCAUaE-iq",
+          "Pt9qJ5pgYr",
+          "S331eVzRZ1",
+          "oTLdlexWQr",
+          "lCFem5jB9X",
+          "0JBaQUxB5d",
+          "VD9P9ub8v6"
+        ]
+      ],
+      "updatedAt": "2026-06-04T18:07:20.698Z"
+    },
+    {
+      "createdAt": "2026-06-04T18:12:50.874Z",
+      "fieldId": "faqItem",
+      "name": "FAQ Item",
+      "fields": [
+        {
+          "idValue": "UzR-HRb9Eb",
+          "fieldId": "question",
+          "name": "Question",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "RJfAN7Hv5H",
+          "fieldId": "answer",
+          "name": "Answer",
+          "kind": "textArea",
+          "required": true
+        }
+      ],
+      "position": [
+        [
+          "UzR-HRb9Eb",
+          "RJfAN7Hv5H"
+        ]
+      ],
+      "updatedAt": "2026-06-04T18:12:50.874Z"
+    },
+    {
+      "createdAt": "2026-06-04T18:15:36.997Z",
+      "fieldId": "scheduleItem",
+      "name": "Schedule Item",
+      "fields": [
+        {
+          "idValue": "mFJ3RY2Hf-",
+          "fieldId": "date",
+          "name": "Date",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "DFX6vCGqpn",
+          "fieldId": "title",
+          "name": "Exam Title",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "s1l-OwF0CA",
+          "fieldId": "status",
+          "name": "Status",
+          "kind": "text",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "mFJ3RY2Hf-",
+          "DFX6vCGqpn",
+          "s1l-OwF0CA"
+        ]
+      ],
+      "updatedAt": "2026-06-04T18:15:36.997Z"
+    },
+    {
+      "createdAt": "2026-06-04T18:24:50.958Z",
+      "fieldId": "kidsCourse",
+      "name": "Kids Course",
+      "fields": [
+        {
+          "idValue": "AO_amXWviP",
+          "fieldId": "name",
+          "name": "Course Name",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "TMbE0qCWld",
+          "fieldId": "target",
+          "name": "Target",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "rAynIMcsyP",
+          "fieldId": "time",
+          "name": "Time",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "Z_KJd3wQhL",
+          "fieldId": "fee",
+          "name": "Fee",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "E8hbxL9C1v",
+          "fieldId": "badge",
+          "name": "Badge",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "ZHqtMejnp8",
+          "fieldId": "desc",
+          "name": "Description",
+          "kind": "textArea",
+          "required": false
+        },
+        {
+          "idValue": "-B4ucPk0Q3",
+          "fieldId": "image",
+          "name": "Image",
+          "kind": "media",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "AO_amXWviP",
+          "TMbE0qCWld",
+          "rAynIMcsyP",
+          "Z_KJd3wQhL",
+          "E8hbxL9C1v",
+          "ZHqtMejnp8",
+          "-B4ucPk0Q3"
+        ]
+      ],
+      "updatedAt": "2026-06-05T09:44:51.092Z"
+    },
+    {
+      "createdAt": "2026-06-04T19:35:12.271Z",
+      "fieldId": "faq",
+      "name": "FAQFAQ",
+      "fields": [
+        {
+          "idValue": "hSKweWQEei",
+          "fieldId": "questionquestion",
+          "name": "Question",
+          "kind": "text",
+          "required": false
+        },
+        {
+          "idValue": "T5pQU4NW3i",
+          "fieldId": "answer",
+          "name": "Answer",
+          "kind": "textArea",
+          "required": false
+        }
+      ],
+      "position": [
+        [
+          "hSKweWQEei",
+          "T5pQU4NW3i"
+        ]
+      ],
+      "updatedAt": "2026-06-04T19:35:12.271Z"
+    },
+    {
+      "createdAt": "2026-06-05T10:33:00.436Z",
+      "fieldId": "reasonsGridItem",
+      "name": "Reasons Grid Item",
+      "fields": [
+        {
+          "idValue": "iDXiFCcZQl",
+          "fieldId": "number",
+          "name": "Number",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "8j5Gi2DHOb",
+          "fieldId": "title",
+          "name": "Title",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "w_us2Mrhwk",
+          "fieldId": "desc",
+          "name": "Description",
+          "kind": "textArea",
+          "required": true
+        }
+      ],
+      "position": [
+        [
+          "iDXiFCcZQl",
+          "8j5Gi2DHOb",
+          "w_us2Mrhwk"
+        ]
+      ],
+      "updatedAt": "2026-06-05T10:33:00.437Z"
+    },
+    {
+      "createdAt": "2026-06-05T10:37:27.905Z",
+      "fieldId": "courseDiagnosisItem",
+      "name": "Course Diagnosis Item",
+      "fields": [
+        {
+          "idValue": "VTB_q3SBSd",
+          "fieldId": "type",
+          "name": "Type",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "FJjb8uGJOC",
+          "fieldId": "target",
+          "name": "Target",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "wy7xYMxljx",
+          "fieldId": "desc",
+          "name": "Description",
+          "kind": "textArea",
+          "required": true
+        },
+        {
+          "idValue": "ZhzRK0NHs1",
+          "fieldId": "btnText",
+          "name": "Button Text",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "JLtVQHK5uN",
+          "fieldId": "href",
+          "name": "Button Link",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "JlmVOcBbe_",
+          "fieldId": "btnColorClass",
+          "name": "Button Color Class",
+          "kind": "text",
+          "required": true
+        }
+      ],
+      "position": [
+        [
+          "VTB_q3SBSd",
+          "FJjb8uGJOC",
+          "wy7xYMxljx",
+          "ZhzRK0NHs1",
+          "JLtVQHK5uN",
+          "JlmVOcBbe_"
+        ]
+      ],
+      "updatedAt": "2026-06-05T10:37:27.905Z"
+    },
+    {
+      "createdAt": "2026-06-05T10:45:07.471Z",
+      "fieldId": "cta",
+      "name": "CTA",
+      "fields": [
+        {
+          "idValue": "mKNz3iWt0-",
+          "fieldId": "text",
+          "name": "Text",
+          "kind": "textArea",
+          "required": true
+        },
+        {
+          "idValue": "U-nzZBnbi2",
+          "fieldId": "link",
+          "name": "Link",
+          "kind": "text",
+          "required": true
+        }
+      ],
+      "position": [
+        [
+          "mKNz3iWt0-",
+          "U-nzZBnbi2"
+        ]
+      ],
+      "updatedAt": "2026-06-05T10:45:07.471Z"
+    }
+  ]
+}

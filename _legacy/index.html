@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Bloom Nail Academyは未経験からプロのネイリストを目指せるJNA認定校です。充実のサポートと合格保証であなたの夢を叶えます。">
+    <title>Bloom Nail Academy | ネイルスクール</title>
+    <link rel="canonical" href="https://example.com/nailschool/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- OGP & Twitter Cards -->
+    <meta property="og:title" content="Bloom Nail Academy | 未来のプロネイリストへ">
+    <meta property="og:description" content="未経験からプロのネイリストを目指せるJNA認定校。合格保証であなたの夢を叶えます。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/nailschool/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=1200">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- LCP Optimization (First Hero Image) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=1920">
+
+    <!-- CSS / Design Tokens (Open Props & Normalize) -->
+    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
+
+    <!-- UI / Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main" class="skip-link sr-only sr-only-focusable">メインコンテンツへスキップ</a>
+
+    <!-- NoScript Fallback (Prevents infinite loader) -->
+    <noscript>
+        <style>
+            #loader { display: none !important; }
+        </style>
+    </noscript>
+    <!-- S01: Page Loader -->
+    <div id="loader" class="loader" role="status" aria-live="polite">
+        <span class="loader__text">Bloom Nail Academy</span>
+    </div>
+
+    <!-- S02: Header -->
+    <header class="header" id="header">
+        <div class="header__inner">
+            <h1 class="logo"><a href="#">Bloom Nail Academy</a></h1>
+            <nav class="nav" id="main-nav" aria-label="Main Navigation">
+                <ul class="nav__list">
+                    <li><a href="#about" class="nav__link">スクール紹介</a></li>
+                    <li><a href="#courses" class="nav__link">コース・料金</a></li>
+                    <li><a href="#support" class="nav__link">サポート体制</a></li>
+                    <li><a href="#voices" class="nav__link">生徒の声</a></li>
+                    <li><a href="#faq" class="nav__link">よくあるご質問</a></li>
+                    <li><a href="#access" class="nav__link">アクセス</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <a href="#request" class="btn btn--primary header__btn">無料資料請求</a>
+                <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Nav Backdrop -->
+        <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- S03: Hero Section -->
+        <section id="hero" class="hero">
+            <!-- GSAP Parallax Background Wrapper -->
+            <div class="hero__bg-wrapper" id="hero-bg">
+                <!-- Swiper -->
+                <div class="swiper hero__slider" id="hero-slider" aria-hidden="true">
+                    <div class="swiper-wrapper">
+                        <!-- Glamorous Pink/Gold Hero Images -->
+                        <div class="swiper-slide">
+                            <div class="hero__slide-img" style="background-image: url('./hero_glamorous_pink_1778903184744.png');"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="hero__slide-img" style="background-image: url('https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=1920');"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="hero__slide-img" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=1920');"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Overlay to ensure text readability -->
+                <div class="hero__overlay"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="hero__content">
+                <div class="hero__inner">
+                    <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">JNA認定校 / 未経験からプロフェッショナルへ</p>
+                    <h2 class="hero__title" data-aos="fade-up" data-aos-delay="400">
+                        <!-- Screen reader safety: Read text natively without spamming -->
+                        <span class="sr-only">あなたも、選ばれるプロのネイリストへ。好きを、一生の仕事にする。</span>
+                        <!-- Visual animation: Hidden from screen readers to prevent infinite announcement spam -->
+                        <span id="typed-text" aria-hidden="true"></span>
+                    </h2>
+                    <p class="hero__desc" data-aos="fade-up" data-aos-delay="600">
+                        一流の講師陣による少人数制レッスンで、<br>
+                        あなたの「好き」を一生の仕事にする。
+                    </p>
+                    <div class="hero__cta" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#request" class="btn btn--primary btn--large">無料資料請求はこちら</a>
+                        <a href="#about" class="btn btn--outline btn--large hero__btn-alt">スクールの特徴</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="hero__scroll">
+                <span>SCROLL</span>
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- S04: Campaign Banner -->
+        <aside id="campaign" class="campaign">
+            <div class="campaign__inner container" data-aos="fade-up" data-aos-delay="1000">
+                <a href="#request" class="campaign__banner">
+                    <div class="campaign__badge">期間限定</div>
+                    <div class="campaign__text">
+                        <h3 class="campaign__title">春の入学金 <span>全額無料</span> キャンペーン実施中！</h3>
+                        <p class="campaign__sub">2026年5月末までのご入校で、通常入学金が無料に。詳細はこちら→</p>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- S05: Trust Badges -->
+        <section id="trust" class="trust">
+            <div class="trust__inner container">
+                <div class="trust__grid">
+                    <!-- Metric 1 -->
+                    <div class="trust__item" aria-label="卒業生数 3000名以上" data-aos="fade-up" data-aos-delay="0">
+                        <p class="trust__label">卒業生数</p>
+                        <p class="trust__value" aria-hidden="true"><span class="gsap-counter" data-target="3000">0</span><span class="trust__unit">名以上</span></p>
+                    </div>
+                    <!-- Metric 2 -->
+                    <div class="trust__item" aria-label="検定合格率 98パーセント" data-aos="fade-up" data-aos-delay="100">
+                        <p class="trust__label">検定合格率</p>
+                        <p class="trust__value" aria-hidden="true"><span class="gsap-counter" data-target="98">0</span><span class="trust__unit">%</span></p>
+                    </div>
+                    <!-- Metric 3 -->
+                    <div class="trust__item" aria-label="直営サロン就職率 100パーセント" data-aos="fade-up" data-aos-delay="200">
+                        <p class="trust__label">直営サロン就職率</p>
+                        <p class="trust__value" aria-hidden="true"><span class="gsap-counter" data-target="100">0</span><span class="trust__unit">%</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S06: About School (Features) -->
+        <section id="about" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">Bloom Nail Academyが選ばれる理由</h2>
+                <p class="section__subtitle">Why Choose Us</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <article class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560930950-5cc20e8fae8a?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">安心の実績</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">現役トップネイリストが直接指導</h3>
+                        <p class="card__text">流行を取り入れた最新のアートや、現場で即戦力となるサロンスタイルを現役プロから直に学べます。</p>
+                        <a href="#teachers" class="btn btn--outline">講師陣を見る</a>
+                    </div>
+                </article>
+
+                <!-- Feature 2 -->
+                <article class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1616462744007-82a870191b72?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">合格保証</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">資格取得まで徹底サポート</h3>
+                        <p class="card__text">JNECネイリスト技能検定やJNAジェルネイル技能検定の合格保証制度。合格するまで何度でも無料で補習可能です。</p>
+                        <a href="#support" class="btn btn--outline">サポート体制へ</a>
+                    </div>
+                </article>
+
+                <!-- Feature 3 -->
+                <article class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">通いやすさ</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">通いやすいフリータイム制</h3>
+                        <p class="card__text">ライフスタイルに合わせて好きな時間・曜日に受講可能。働きながらでも無理なくプロのネイリストを目指せます。</p>
+                        <a href="#system" class="btn btn--outline">システム案内へ</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- S07: Courses -->
+        <section id="courses" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">目的で選べる4つのネイルコース</h2>
+                <p class="section__subtitle">COURSES</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <article class="card course-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge badge--accent">人気No.1</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">プロフェッショナルネイルコース</h3>
+                        <p class="card__text">最短でプロのネイリストとしてサロン就職を目指す、最も選ばれているスタンダードコースです。</p>
+                        <a href="#course-professional" class="course-card__link">詳しく見る <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Course 2 -->
+                <article class="card course-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">独立開業</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">ホームサロン独立開業コース</h3>
+                        <p class="card__text">技術習得に加え、サロンスペースの作り方や集客、開業ノウハウまで総合的に学べるコース。</p>
+                        <a href="#course-independent" class="course-card__link">詳しく見る <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Course 3 -->
+                <article class="card course-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">資格特化</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">検定対策・資格取得コース</h3>
+                        <p class="card__text">JNECネイリスト技能検定1級、JNAジェル検定上級の合格に特化した試験対策カリキュラム。</p>
+                        <a href="#course-license" class="course-card__link">詳しく見る <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+
+                <!-- Course 4 -->
+                <article class="card course-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595152452543-e5fc28ebc2b8?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="card__img">
+                        <span class="badge card__badge">趣味・副業</span>
+                    </div>
+                    <div class="card__body">
+                        <h3 class="card__title">セルフネイル・副業コース</h3>
+                        <p class="card__text">自分の爪を綺麗にしたい方や、週末だけの副業などでネイルを楽しみたい方向けの短期コース。</p>
+                        <a href="#course-hobby" class="course-card__link">詳しく見る <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Course Diagnosis Banner -->
+            <div class="course-diagnosis" data-aos="fade-up" data-aos-delay="400">
+                <div class="course-diagnosis__content">
+                    <h3 class="course-diagnosis__title">どのコースが自分に合っているか分からない方はこちら</h3>
+                    <p class="course-diagnosis__text">簡単な質問に答えるだけで、あなたにぴったりのコースをご提案します。</p>
+                </div>
+                <a href="#diagnosis" class="btn btn--primary">コース診断を始める</a>
+            </div>
+        </section>
+
+        <!-- S08: Features (3 Points) -->
+        <section id="features" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">アフロートネイルならではの3つの特徴</h2>
+                <p class="section__subtitle">FEATURES</p>
+            </div>
+
+            <div class="feature-list">
+                <!-- Point 1 -->
+                <div class="feature-item" data-aos="fade-up">
+                    <div class="feature-item__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516975080661-46bfa2c2240b?auto=format&fit=crop&q=80&w=800" alt="" loading="lazy" width="800" height="600" class="feature-item__img">
+                        <div class="feature-item__number">01</div>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">直営サロン連携による<br><span class="highlight">現場直結カリキュラム</span></h3>
+                        <p class="feature-item__text">全国に展開する超人気サロン「AFLOAT」プロデュース。サロンワークのエッセンスを詰め込んだ、現場に直結するカリキュラムが最大の特徴です。</p>
+                        <p class="feature-item__text">未経験からでも、卒業時には「お客様に選ばれるネイリスト」としての即戦力が身につきます。</p>
+                    </div>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="feature-item" data-aos="fade-up">
+                    <div class="feature-item__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1629813204981-dbee44962cb1?auto=format&fit=crop&q=80&w=800" alt="" loading="lazy" width="800" height="600" class="feature-item__img">
+                        <div class="feature-item__number">02</div>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">実績豊富な<br><span class="highlight">「JNA本部認定講師」が直接指導</span></h3>
+                        <p class="feature-item__text">講師は全員、厳格な審査をクリアした日本ネイリスト協会（JNA）の本部認定講師・認定講師。</p>
+                        <p class="feature-item__text">検定試験の採点経験を持つプロフェッショナルが、一人ひとりの癖や課題を正確に見抜き、合格まで最短ルートで導きます。</p>
+                    </div>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="feature-item" data-aos="fade-up">
+                    <div class="feature-item__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="" loading="lazy" width="800" height="600" class="feature-item__img">
+                        <div class="feature-item__number">03</div>
+                    </div>
+                    <div class="feature-item__content">
+                        <h3 class="feature-item__title">圧倒的な就職力。<br><span class="highlight">専門スタッフによる個別キャリア支援</span></h3>
+                        <p class="feature-item__text">独自の求人ネットワークと提携サロンを多数確保。専任の就職サポートスタッフが在籍し、履歴書の書き方から面接対策、サロン選びまで徹底的にバックアップ。</p>
+                        <p class="feature-item__text">直営サロンへの就職枠はもちろん、有名店への就職実績も業界トップクラスです。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S09: Course Diagnosis -->
+        <section id="diagnosis" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">迷ったらこちら！<br>あなたにぴったりのコース診断</h2>
+                <p class="section__subtitle">COURSE DIAGNOSIS</p>
+            </div>
+            
+            <div class="diagnosis-grid">
+                <!-- Type A -->
+                <article class="diagnosis-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="diagnosis-card__header diagnosis-card__header--a">
+                        <span class="diagnosis-card__type">TYPE A</span>
+                        <h3 class="diagnosis-card__target">サロンに就職して<br>プロになりたい！</h3>
+                    </div>
+                    <div class="diagnosis-card__body">
+                        <p class="diagnosis-card__text">未経験からサロン就職を目指すなら、基礎から応用まで学べる一番人気のコースがおすすめです。</p>
+                        <a href="#course-professional" class="btn btn--outline diagnosis-card__btn">プロフェッショナルコースへ</a>
+                    </div>
+                </article>
+
+                <!-- Type B -->
+                <article class="diagnosis-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="diagnosis-card__header diagnosis-card__header--b">
+                        <span class="diagnosis-card__type">TYPE B</span>
+                        <h3 class="diagnosis-card__target">自分のペースで<br>自宅サロンを開きたい！</h3>
+                    </div>
+                    <div class="diagnosis-card__body">
+                        <p class="diagnosis-card__text">ネイルの技術に加え、開業ノウハウや集客方法まで総合的に学びたい方にぴったりのコース。</p>
+                        <a href="#course-independent" class="btn btn--outline diagnosis-card__btn">ホームサロン独立開業コースへ</a>
+                    </div>
+                </article>
+
+                <!-- Type C -->
+                <article class="diagnosis-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="diagnosis-card__header diagnosis-card__header--c">
+                        <span class="diagnosis-card__type">TYPE C</span>
+                        <h3 class="diagnosis-card__target">まずは副業・趣味から<br>楽しく始めたい！</h3>
+                    </div>
+                    <div class="diagnosis-card__body">
+                        <p class="diagnosis-card__text">自分の爪を綺麗にしたい、週末だけ副業でネイルをしたい方向けの短期集中コース。</p>
+                        <a href="#course-hobby" class="btn btn--outline diagnosis-card__btn">セルフネイル・副業コースへ</a>
+                    </div>
+                </article>
+                <!-- Type D -->
+                <article class="diagnosis-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="diagnosis-card__header diagnosis-card__header--d" style="background-color: #7b8893">
+                        <span class="diagnosis-card__type">TYPE D</span>
+                        <h3 class="diagnosis-card__target">確実に資格を取得・<br>スキルアップしたい！</h3>
+                    </div>
+                    <div class="diagnosis-card__body">
+                        <p class="diagnosis-card__text">検定1級などの上位資格の取得や、現場の苦手技術を極めたい方に向けた対策特化コース。</p>
+                        <a href="#course-license" class="btn btn--outline diagnosis-card__btn">検定対策・資格取得コースへ</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- S10: Course Details & Pricing -->
+        <section id="course-details" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">コース詳細・料金案内</h2>
+                <p class="section__subtitle">COURSE DETAILS & PRICE</p>
+            </div>
+
+            <div class="course-detail-list">
+                <!-- Course 1 Detail -->
+                <article id="course-professional" class="course-detail" data-aos="fade-up">
+                    <div class="course-detail__header">
+                        <span class="badge badge--accent course-detail__badge">人気No.1</span>
+                        <h3 class="course-detail__title">プロフェッショナルネイルコース</h3>
+                        <p class="course-detail__meta">受講期間目安: 約6ヶ月〜1年（全120時間 / 40回）</p>
+                    </div>
+                    <div class="course-detail__content">
+                        <p class="course-detail__desc">
+                            ネイリスト検定2級・1級、ジェル検定初級・中級・上級すべての合格を目指し、
+                            サロンワークで即戦力となる接客技術や最新アートまで網羅的に学ぶフラッグシップコースです。
+                        </p>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>金額（税込）</th>
+                                        <th>備考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>入学金</td>
+                                        <td><strong>¥33,000</strong></td>
+                                        <td><span class="highlight">キャンペーン中につき免除！</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>授業料</td>
+                                        <td>¥550,000</td>
+                                        <td>分割払い可（月々¥15,000〜）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>教材費</td>
+                                        <td>約¥80,000</td>
+                                        <td>お手持ちの道具がある場合は差し引かれます。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="course-detail__action">
+                            <a href="#request" class="btn btn--primary">このコースの詳しい資料をもらう</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 2 Detail -->
+                <article id="course-independent" class="course-detail" data-aos="fade-up">
+                    <div class="course-detail__header">
+                        <span class="badge course-detail__badge">独立開業</span>
+                        <h3 class="course-detail__title">ホームサロン独立開業コース</h3>
+                        <p class="course-detail__meta">受講期間目安: 約8ヶ月〜1年半（全160時間 / 54回）</p>
+                    </div>
+                    <div class="course-detail__content">
+                        <p class="course-detail__desc">
+                            ネイル技術の習得はもちろん、「どうやって集客するか」「メニューの価格設定はどうするか」など、サロン経営に必要なビジネスノウハウまで徹底的に指導。専用コンサルタントがつきっきりのコースです。
+                        </p>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>金額（税込）</th>
+                                        <th>備考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>入学金</td>
+                                        <td><strong>¥33,000</strong></td>
+                                        <td><span class="highlight">キャンペーン中につき免除！</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>授業料</td>
+                                        <td>¥780,000</td>
+                                        <td>分割払い可（月々¥20,000〜）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>教材費・開業セット</td>
+                                        <td>約¥150,000</td>
+                                        <td>サロン導入用マシン・ライト等を含みます。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="course-detail__action">
+                            <a href="#request" class="btn btn--primary">このコースの詳しい資料をもらう</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 3 Detail: License -->
+                <article id="course-license" class="course-detail" data-aos="fade-up">
+                    <div class="course-detail__header">
+                        <span class="badge course-detail__badge" style="background-color: var(--color-text-muted); border-color: var(--color-text-muted); color: white;">資格特化</span>
+                        <h3 class="course-detail__title">検定対策・資格取得コース</h3>
+                        <p class="course-detail__meta">受講期間目安: 約3ヶ月〜（希望の級数による）</p>
+                    </div>
+                    <div class="course-detail__content">
+                        <p class="course-detail__desc">
+                            JNECネイリスト技能検定1級・2級、JNAジェル検定上級など、目標とする資格に合わせたオーダーメイドの試験対策カリキュラムで確実な合格をサポートします。
+                        </p>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>金額（税込）</th>
+                                        <th>備考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>入学金</td>
+                                        <td><strong>¥33,000</strong></td>
+                                        <td><span class="highlight">キャンペーン中につき免除！</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>授業料</td>
+                                        <td>約¥180,000〜</td>
+                                        <td>受講級・時間数により変動します。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>教材費</td>
+                                        <td>実費のみ</td>
+                                        <td>必要な道具のみをご購入いただけます。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="course-detail__action">
+                            <a href="#request" class="btn btn--primary">このコースの詳しい資料をもらう</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Course 4 Detail: Hobby -->
+                <article id="course-hobby" class="course-detail" data-aos="fade-up">
+                    <div class="course-detail__header">
+                        <span class="badge course-detail__badge" style="background-color: var(--brand-gold); border-color: var(--brand-gold);">趣味・副業</span>
+                        <h3 class="course-detail__title">セルフネイル・副業コース</h3>
+                        <p class="course-detail__meta">受講期間目安: 約3ヶ月（全60時間 / 20回）</p>
+                    </div>
+                    <div class="course-detail__content">
+                        <p class="course-detail__desc">
+                            自分の爪を綺麗に保ちたい、友達にしてあげたい、または週末限定のプチ副業としてネイルスキルを身に付けたい方向けの短期集中型コースです。
+                        </p>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>金額（税込）</th>
+                                        <th>備考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>入学金</td>
+                                        <td><strong>¥33,000</strong></td>
+                                        <td><span class="highlight">キャンペーン中につき免除！</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>授業料</td>
+                                        <td>¥280,000</td>
+                                        <td>分割払い可（月々¥10,000〜）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>教材費</td>
+                                        <td>約¥40,000</td>
+                                        <td>初期に必要な最低限のセットとなります。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="course-detail__action">
+                            <a href="#request" class="btn btn--primary">このコースの詳しい資料をもらう</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Middle CTA Banner -->
+        <section id="middle-cta" class="middle-cta" data-aos="fade-up">
+            <div class="middle-cta__container container">
+                <div class="middle-cta__content">
+                    <h2 class="middle-cta__title"><span class="highlight">毎月先着30名様限定！</span></h2>
+                    <p class="middle-cta__desc">今なら<strong>入学金33,000円が全額免除</strong>になるキャンペーンを実施中。<br>まずは無料の資料請求・スクール見学をご利用ください。</p>
+                    <div class="middle-cta__actions">
+                        <a href="#request" class="btn btn--primary btn--large">
+                            <span class="btn-microcopy">＼スマホで簡単1分／</span>
+                            無料資料請求はこちら
+                        </a>
+                        <a href="#tour" class="btn btn--outline btn--large">スクール見学・説明会に申し込む</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S11: 6 Reasons Why We Are Chosen -->
+        <section id="reasons" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">アフロートネイルスクールが<br>選ばれる6つの理由</h2>
+                <p class="section__subtitle">REASONS</p>
+            </div>
+            
+            <div class="reasons-grid">
+                <!-- Reason 1 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">01</span>
+                    </div>
+                    <h3 class="reason-card__title">資格合格保証制度</h3>
+                    <p class="reason-card__text">検定に合格するまで、追加料金なしで何度でもレッスンを受講できる完全保証制度。</p>
+                </article>
+                <!-- Reason 2 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">02</span>
+                    </div>
+                    <h3 class="reason-card__title">少人数制・フリータイム制</h3>
+                    <p class="reason-card__text">自分の予定に合わせてスマホから簡単に予約可能。少人数で講師の目が行き届きます。</p>
+                </article>
+                <!-- Reason 3 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">03</span>
+                    </div>
+                    <h3 class="reason-card__title">JNA認定校・トップ講師</h3>
+                    <p class="reason-card__text">高い技術力を持つコンテスト入賞者や、メディアで活躍するプロのみが技術を指導。</p>
+                </article>
+                <!-- Reason 4 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">04</span>
+                    </div>
+                    <h3 class="reason-card__title">就職・開業への万全サポート</h3>
+                    <p class="reason-card__text">直営サロンへの優先就職枠や、豊富な求人ネットワークで卒業後の進路まで完全バックアップ。</p>
+                </article>
+                <!-- Reason 5 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">05</span>
+                    </div>
+                    <h3 class="reason-card__title">最新トレンド技術の習得</h3>
+                    <p class="reason-card__text">サロン現場で実際に使われている最新のアートや商材、SNS集客ノウハウまで学べます。</p>
+                </article>
+                <!-- Reason 6 -->
+                <article class="reason-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="reason-card__icon" aria-hidden="true">
+                        <span class="reason-card__number">06</span>
+                    </div>
+                    <h3 class="reason-card__title">通いやすいアクセス環境</h3>
+                    <p class="reason-card__text">各校舎とも駅から徒歩圏内の好立地。夜間の授業もあり、仕事帰りでも安心して通えます。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- S12: Qualification (検定合格率) -->
+        <section id="qualification" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">圧倒的な検定合格率</h2>
+                <p class="section__subtitle">QUALIFICATION</p>
+            </div>
+            
+            <div class="qualification-content">
+                <div class="qualification-chart-wrapper" data-aos="zoom-in">
+                    <!-- SVG Donut Chart -->
+                    <svg class="donut-chart" viewBox="0 0 100 100" aria-label="JNECネイリスト技能検定合格率 98%">
+                        <!-- Background Circle -->
+                        <circle class="donut-chart__bg" cx="50" cy="50" r="40"></circle>
+                        <!-- Foreground Circle (Animated) -->
+                        <circle class="donut-chart__progress gsap-donut" cx="50" cy="50" r="40" data-value="98"></circle>
+                    </svg>
+                    <!-- Center Value -->
+                    <div class="donut-chart__value-wrapper">
+                        <span class="donut-chart__value gsap-counter" data-target="98">0</span><span class="donut-chart__percent">%</span>
+                    </div>
+                </div>
+                
+                <div class="qualification-text" data-aos="fade-left">
+                    <h3 class="qualification-text__title">なぜアフロートは<br><span class="highlight">合格率が高い</span>のか？</h3>
+                    <p class="qualification-text__desc">全国平均の合格率が約50％と言われるネイリスト検定。アフロートネイルスクールでは、検定試験の試験官経験者が直接指導するため、合格のポイントを的確に押さえたレッスンが可能です。</p>
+                    <div class="qualification-box">
+                        <h4 class="qualification-box__title">安心の【資格合格保証】制度</h4>
+                        <p class="qualification-box__text">もし不合格になっても、合格するまで無料でレッスンを受けられる完全保証。最後まで責任を持ってサポートします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S13: 3 Major Supports -->
+        <section id="support" class="section container">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">卒業後もずっと安心<br>アフロートの3大サポート</h2>
+                <p class="section__subtitle">SUPPORT SYSTEM</p>
+            </div>
+
+            <div class="support-list">
+                <!-- Support 1 -->
+                <article class="support-card" data-aos="fade-up">
+                    <div class="support-card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="support-card__img">
+                        <span class="support-card__badge" aria-hidden="true">SUPPORT 01</span>
+                    </div>
+                    <div class="support-card__content">
+                        <h3 class="support-card__title">業界トップクラスの<br><span class="highlight">「絶対就職保証」</span>サポート</h3>
+                        <p class="support-card__text">
+                            専任のキャリアアドバイザーが、履歴書の書き方から面接対策まで個別指導。
+                            全国の提携サロンやアフロート直営サロンへの優先紹介枠など、あなたが希望する条件のサロンへ就職できるまで無期限でサポートします。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Support 2 -->
+                <article class="support-card support-card--reverse" data-aos="fade-up">
+                    <div class="support-card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542598953-41bb16b80302?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="support-card__img">
+                        <span class="support-card__badge" aria-hidden="true">SUPPORT 02</span>
+                    </div>
+                    <div class="support-card__content">
+                        <h3 class="support-card__title">夢の実現に並走する<br><span class="highlight">ホームサロン独立開業</span>支援</h3>
+                        <p class="support-card__text">
+                            物件選びのアドバイスから、サロンのコンセプト作り、メニューの価格設定、リピーターを獲得するためのSNS集客ノウハウまで。
+                            ネイルの技術だけでなく、経営者として成功するためのビジネススキルをお伝えします。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Support 3 -->
+                <article class="support-card" data-aos="fade-up">
+                    <div class="support-card__img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516975080661-460ce41a8db7?auto=format&fit=crop&q=80&w=600" alt="" loading="lazy" width="600" height="400" class="support-card__img">
+                        <span class="support-card__badge" aria-hidden="true">SUPPORT 03</span>
+                    </div>
+                    <div class="support-card__content">
+                        <h3 class="support-card__title">いつもの教室で検定が受けられる<br><span class="highlight">JNA認定校の特権</span></h3>
+                        <p class="support-card__text">
+                            アフロートはJNA（日本ネイリスト協会）認定校のため、ジェルネイル検定初級・中級・上級などを「いつもの通い慣れた校舎」で受験可能です。
+                            試験本番の緊張を和らげ、実力を100%発揮できる最高の環境をご用意しています。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- S14: Student Voices -->
+        <section id="voices" class="section bg-soft">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title">生徒の声・卒業生インタビュー</h2>
+                <p class="section__subtitle">STUDENT VOICES</p>
+            </div>
+            
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper swiper-voices">
+                    <div class="swiper-wrapper">
+                        <!-- Voice 1 -->
+                        <div class="swiper-slide voice-card">
+                            <div class="voice-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300" alt="田中さん" loading="lazy" width="100" height="100" class="voice-card__img">
+                            </div>
+                            <div class="voice-card__content">
+                                <h3 class="voice-card__title">「未経験から憧れのサロンへ！」</h3>
+                                <div class="voice-card__profile">
+                                    <span class="voice-card__name">田中さん（24歳）</span>
+                                    <span class="voice-card__course">プロフェッショナルコース修了</span>
+                                </div>
+                                <p class="voice-card__text">全くの未経験からのスタートでしたが、少人数制で先生がつきっきりで教えてくれたおかげで、半年で資格を取得し、憧れのサロンに就職できました。</p>
+                            </div>
+                        </div>
+                        <!-- Voice 2 -->
+                        <div class="swiper-slide voice-card">
+                            <div class="voice-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300" alt="佐藤さん" loading="lazy" width="100" height="100" class="voice-card__img">
+                            </div>
+                            <div class="voice-card__content">
+                                <h3 class="voice-card__title">「念願のホームサロンを開業」</h3>
+                                <div class="voice-card__profile">
+                                    <span class="voice-card__name">佐藤さん（32歳）</span>
+                                    <span class="voice-card__course">ホームサロン独立開業コース修了</span>
+                                </div>
+                                <p class="voice-card__text">技術だけでなく、SNSの集客方法や価格設定など経営のことも親身に相談に乗っていただき、卒業後すぐに自宅の一室でサロンをオープンできました。</p>
+                            </div>
+                        </div>
+                        <!-- Voice 3 -->
+                        <div class="swiper-slide voice-card">
+                            <div class="voice-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=300" alt="鈴木さん" loading="lazy" width="100" height="100" class="voice-card__img">
+                            </div>
+                            <div class="voice-card__content">
+                                <h3 class="voice-card__title">「働きながら1級一発合格！」</h3>
+                                <div class="voice-card__profile">
+                                    <span class="voice-card__name">鈴木さん（28歳）</span>
+                                    <span class="voice-card__course">検定対策特化コース修了</span>
+                                </div>
+                                <p class="voice-card__text">仕事終わりの夜間や休日を利用して通いました。本番さながらの模擬試験や、いつもの教室で受験できたことが一発合格に繋がりました。</p>
+                            </div>
+                        </div>
+                        <!-- Voice 4 -->
+                        <div class="swiper-slide voice-card">
+                            <div class="voice-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300" alt="高橋さん" loading="lazy" width="100" height="100" class="voice-card__img">
+                            </div>
+                            <div class="voice-card__content">
+                                <h3 class="voice-card__title">「趣味の枠を超えて副業に」</h3>
+                                <div class="voice-card__profile">
+                                    <span class="voice-card__name">高橋さん（22歳）</span>
+                                    <span class="voice-card__course">セルフネイル・副業コース修了</span>
+                                </div>
+                                <p class="voice-card__text">週末だけのプチ副業を目指して受講しました。基礎からしっかり学べたので、今では休日に友達や紹介のお客様にネイルをして喜ばれています。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pagination & Navigation -->
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div class="section__action">
+                    <a href="#request" class="btn btn--outline btn--large">もっと先輩の声を見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- S15: Refund Guarantee -->
+        <section id="guarantee" class="section">
+            <div class="container">
+                <div class="guarantee-banner" data-aos="flip-up">
+                    <div class="guarantee-banner__badge" aria-hidden="true">GUARANTEE</div>
+                    <div class="guarantee-banner__content">
+                        <h2 class="guarantee-banner__title">全額返金保証付き<br><span class="highlight highlight--gold">スクール見学・説明会</span></h2>
+                        <p class="guarantee-banner__text">
+                            当スクールでは、見学・説明会にご参加いただいた上で、万が一内容にご満足いただけなかった場合、受講料などを一切いただきません。無理な勧誘も一切行いませんので、まずは安心してお申し込みください。
+                        </p>
+                        <div class="guarantee-banner__action">
+                            <a href="#tour" class="btn btn--primary btn--large btn--gold">無料スクール見学に申し込む</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S16: Access -->
+        <section id="access" class="section">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">校舎アクセス</h2>
+                <div class="tabs" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tabs__nav" role="tablist" aria-label="校舎切り替え">
+                        <button type="button" role="tab" aria-selected="true" aria-controls="panel-shinjuku" id="tab-shinjuku" class="tabs__btn is-active">新宿校（本校）</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="panel-ginza" id="tab-ginza" class="tabs__btn">銀座校</button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="panel-shibuya" id="tab-shibuya" class="tabs__btn">渋谷校</button>
+                    </div>
+                    <div class="tabs__content">
+                        <!-- Shinjuku -->
+                        <div id="panel-shinjuku" role="tabpanel" tabindex="0" aria-labelledby="tab-shinjuku" class="tabs__pane is-active">
+                            <div class="campus-card">
+                                <div class="campus-card__info">
+                                    <h3 class="campus-card__name">新宿校（本校）</h3>
+                                    <p class="campus-card__address">
+                                        〒160-0022<br>
+                                        東京都新宿区新宿3-X-X Bloomビル 4F
+                                    </p>
+                                    <p class="campus-card__access">JR新宿駅 東口より徒歩3分<br>地下鉄新宿三丁目駅 B2出口より徒歩1分</p>
+                                    <a href="https://maps.google.com/?q=新宿区" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Google Mapで開く</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Ginza -->
+                        <div id="panel-ginza" role="tabpanel" tabindex="0" aria-labelledby="tab-ginza" class="tabs__pane" hidden>
+                            <div class="campus-card">
+                                <div class="campus-card__info">
+                                    <h3 class="campus-card__name">銀座校</h3>
+                                    <p class="campus-card__address">
+                                        〒104-0061<br>
+                                        東京都中央区銀座2-X-X Bloom銀座ビル 2F
+                                    </p>
+                                    <p class="campus-card__access">地下鉄銀座駅 A13出口より徒歩2分<br>JR有楽町駅 京橋口より徒歩5分</p>
+                                    <a href="https://maps.google.com/?q=銀座" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Google Mapで開く</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Shibuya -->
+                        <div id="panel-shibuya" role="tabpanel" tabindex="0" aria-labelledby="tab-shibuya" class="tabs__pane" hidden>
+                            <div class="campus-card">
+                                <div class="campus-card__info">
+                                    <h3 class="campus-card__name">渋谷校</h3>
+                                    <p class="campus-card__address">
+                                        〒150-0002<br>
+                                        東京都渋谷区渋谷1-X-X Bloom渋谷スクエア 3F
+                                    </p>
+                                    <p class="campus-card__access">JR渋谷駅 B3出口より徒歩4分<br>地下鉄渋谷駅より徒歩3分</p>
+                                    <a href="https://maps.google.com/?q=渋谷" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Google Mapで開く</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S17: News & Schedule -->
+        <section id="news" class="section bg-soft">
+            <div class="container container--narrow">
+                <h2 class="section__title" data-aos="fade-up">スクールからのお知らせ</h2>
+                <div class="schedule-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <dl class="schedule-list">
+                        <div class="schedule-list__item">
+                            <dt><time datetime="2026-10-01">2026年10月01日</time></dt>
+                            <dd>秋期ネイリスト技能検定試験の申し込みが開始されました。</dd>
+                        </div>
+                        <div class="schedule-list__item">
+                            <dt><time datetime="2026-09-15">2026年09月15日</time></dt>
+                            <dd>【渋谷校】休館日のお知らせ（9/20〜9/22）</dd>
+                        </div>
+                        <div class="schedule-list__item">
+                            <dt><time datetime="2026-09-01">2026年09月01日</time></dt>
+                            <dd>ジェルネイル技能検定試験（初級・中級）の対策特別セミナーのご案内。</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="section__action">
+                    <a href="#request" class="btn btn--outline">過去のお知らせ一覧へ</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- S18: FAQ -->
+        <section id="faq" class="section">
+            <div class="container container--narrow">
+                <h2 class="section__title" data-aos="fade-up">よくあるご質問</h2>
+                
+                <div class="faq-group" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="faq-group__title">スクール・授業について</h3>
+                    
+                    <details class="accordion" name="faq-group-1">
+                        <summary class="accordion__summary">
+                            <span class="accordion__q">Q. まったくの初心者ですが大丈夫ですか？</span>
+                            <span class="accordion__icon">▼</span>
+                        </summary>
+                        <div class="accordion__content">
+                            A. もちろんです。当スクールの生徒様の約8割が未経験からのスタートです。道具の名前から持ち方まで、少人数制で丁寧に指導しますのでご安心ください。
+                        </div>
+                    </details>
+                    
+                    <details class="accordion" name="faq-group-1">
+                        <summary class="accordion__summary">
+                            <span class="accordion__q">Q. 仕事や育児と両立できますか？</span>
+                            <span class="accordion__icon">▼</span>
+                        </summary>
+                        <div class="accordion__content">
+                            A. はい。フリータイム制を導入しているため、ご都合に合わせて土日や夜間の受講が可能です。急な予定変更にも無料の振替制度で柔軟に対応いたします。
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-group" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="faq-group__title">料金・資格について</h3>
+
+                    <details class="accordion" name="faq-group-2">
+                        <summary class="accordion__summary">
+                            <span class="accordion__q">Q. 追加料金はかかりますか？</span>
+                            <span class="accordion__icon">▼</span>
+                        </summary>
+                        <div class="accordion__content">
+                            A. コース料金には必要な教材費がすべて含まれています。検定受験料以外での追加費用の請求は一切ございませんのでご安心ください。
+                        </div>
+                    </details>
+                    
+                    <details class="accordion" name="faq-group-2">
+                        <summary class="accordion__summary">
+                            <span class="accordion__q">Q. JNA認定校とは何ですか？</span>
+                            <span class="accordion__icon">▼</span>
+                        </summary>
+                        <div class="accordion__content">
+                            A. NPO法人日本ネイリスト協会が定める厳格な基準を満たした教育施設です。認定校の生徒は、一部の検定試験をスクール内で受験できるなどの大きなメリットがあります。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- S19: Contact / Request Form -->
+        <section id="request" class="section bg-soft">
+            <div class="container container--narrow">
+                <h2 class="section__title" data-aos="fade-up">無料資料請求・お問い合わせ</h2>
+                <p class="section__desc" style="text-align: center; margin-bottom: var(--size-6);" data-aos="fade-up" data-aos-delay="100">
+                    詳しく知りたい方は、無料パンフレットをお申し込みください。<br>
+                    ご不明な点がございましたら、お気軽にお問い合わせください。
+                </p>
+
+                <div class="form-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <form action="#" method="POST" class="form" id="contact-form">
+                        
+                        <div class="form-group">
+                            <label for="frm-name" class="form-label">
+                                お名前 <span class="form-badge form-badge--required">必須</span>
+                            </label>
+                            <input type="text" id="frm-name" name="name" class="form-control" autocomplete="name" required placeholder="例：山田 花子">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frm-kana" class="form-label">
+                                フリガナ <span class="form-badge form-badge--required">必須</span>
+                            </label>
+                            <input type="text" id="frm-kana" name="kana" class="form-control" required placeholder="例：ヤマダ ハナコ">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frm-email" class="form-label">
+                                メールアドレス <span class="form-badge form-badge--required">必須</span>
+                            </label>
+                            <input type="email" id="frm-email" name="email" class="form-control" autocomplete="email" required placeholder="例：mail@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frm-tel" class="form-label">
+                                電話番号 <span class="form-badge form-badge--optional">任意</span>
+                            </label>
+                            <input type="tel" id="frm-tel" name="tel" class="form-control" autocomplete="tel" placeholder="例：090-1234-5678">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frm-campus" class="form-label">
+                                ご希望の校舎 <span class="form-badge form-badge--required">必須</span>
+                            </label>
+                            <div class="select-wrapper">
+                                <select id="frm-campus" name="campus" class="form-control" required>
+                                    <option value="" selected disabled>選択してください</option>
+                                    <option value="新宿校">新宿校</option>
+                                    <option value="銀座校">銀座校</option>
+                                    <option value="渋谷校">渋谷校</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frm-message" class="form-label">
+                                ご質問・ご要望など <span class="form-badge form-badge--optional">任意</span>
+                            </label>
+                            <textarea id="frm-message" name="message" class="form-control form-control--textarea" rows="5" placeholder="気になることや、見学希望日があればご記入ください。"></textarea>
+                        </div>
+
+                        <div class="form-policy">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="policy" required class="checkbox-input">
+                                <span class="checkbox-text"><a href="#" class="link">プライバシーポリシー</a>に同意する</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn--primary btn--large w-100">入力内容を確認する</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- S20: Topics (Articles) -->
+        <section id="topics" class="section">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">ネイルスクール トピックス</h2>
+                
+                <div class="topics-grid" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Article 1 -->
+                    <article class="topic-card">
+                        <a href="#article-1" class="topic-card__link">
+                            <div class="topic-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?q=80&w=800&auto=format&fit=crop" alt="ネイルアートコンテスト入賞の様子" class="topic-card__img" loading="lazy" width="400" height="300">
+                            </div>
+                            <div class="topic-card__body">
+                                <div class="topic-card__meta">
+                                    <time datetime="2026-10-15" class="topic-card__date">2026.10.15</time>
+                                    <span class="badge badge--accent">イベント</span>
+                                </div>
+                                <h3 class="topic-card__title">全国ネイルアートコンテストで当校生徒が見事グランプリを受賞！</h3>
+                            </div>
+                        </a>
+                    </article>
+                    
+                    <!-- Article 2 -->
+                    <article class="topic-card">
+                        <a href="#article-2" class="topic-card__link">
+                            <div class="topic-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop" alt="新しい教材の紹介" class="topic-card__img" loading="lazy" width="400" height="300">
+                            </div>
+                            <div class="topic-card__body">
+                                <div class="topic-card__meta">
+                                    <time datetime="2026-09-28" class="topic-card__date">2026.09.28</time>
+                                    <span class="badge">お知らせ</span>
+                                </div>
+                                <h3 class="topic-card__title">最新トレンド対応！プロフェッショナルコースの教材が新しくなりました</h3>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="topic-card">
+                        <a href="#article-3" class="topic-card__link">
+                            <div class="topic-card__img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1516975080661-66af20058b73?q=80&w=800&auto=format&fit=crop" alt="卒業生インタビュー" class="topic-card__img" loading="lazy" width="400" height="300">
+                            </div>
+                            <div class="topic-card__body">
+                                <div class="topic-card__meta">
+                                    <time datetime="2026-09-10" class="topic-card__date">2026.09.10</time>
+                                    <span class="badge badge--accent">インタビュー</span>
+                                </div>
+                                <h3 class="topic-card__title">【卒業生の声】未経験から独立開業へ。夢を叶えたサロンオーナー対談</h3>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                
+                <div class="section__action">
+                    <a href="#topics-list" class="btn btn--outline">トピックス一覧を見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- S21: SNS Feed & S22: SNS Follow Band -->
+        <section id="sns" class="section bg-soft">
+            <div class="container">
+                <h2 class="section__title" data-aos="fade-up">Instagram</h2>
+                <div class="section__desc" style="text-align: center; margin-bottom: var(--size-6);" data-aos="fade-up" data-aos-delay="100">
+                    スクールの日常や、生徒様の素敵な作品を毎日配信中！
+                </div>
+
+                <!-- S21: Swiper Feed -->
+                <div class="sns-feed-carousel" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swiper-sns overflow-hidden">
+                        <div class="swiper-wrapper">
+                            <!-- Generate mock instagram posts -->
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=400&auto=format&fit=crop" alt="Instagram 1" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 124</span></div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=400&auto=format&fit=crop" alt="Instagram 2" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 98</span></div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?q=80&w=400&auto=format&fit=crop" alt="Instagram 3" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 256</span></div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1516975080661-66af20058b73?q=80&w=400&auto=format&fit=crop" alt="Instagram 4" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 112</span></div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996ec?q=80&w=400&auto=format&fit=crop" alt="Instagram 5" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 89</span></div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-post">
+                                    <img src="https://images.unsplash.com/photo-1498842812179-c81beecf902c?q=80&w=400&auto=format&fit=crop" alt="Instagram 6" class="sns-post__img" loading="lazy" width="300" height="300">
+                                    <div class="sns-post__overlay"><span aria-hidden="true">♥ 310</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- S22: SNS Follow Band -->
+                <div class="sns-band" data-aos="fade-up" data-aos-delay="300">
+                    <div class="sns-band__inner">
+                        <p class="sns-band__text">最新情報は公式SNSをフォローしてチェック！</p>
+                        <div class="sns-band__links">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="sns-link sns-link--ig" aria-label="Instagram">
+                                Instagram
+                            </a>
+                            <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="sns-link sns-link--line" aria-label="LINE">
+                                LINE Official
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="sns-link sns-link--x" aria-label="X (Twitter)">
+                                X (Twitter)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections will be added sequentially via TDD -->
+
+    </main>
+
+    <!-- S23: Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <a href="#" class="footer__logo">
+                    <span class="sr-only">Bloom Nail Academy</span>
+                    Bloom Nail<br>Academy
+                </a>
+                <p class="footer__desc">
+                    未経験から最短3ヶ月でプロのネイリストへ。<br>
+                    JNA認定講師による少人数制の徹底サポート。
+                </p>
+                <p class="footer__address">
+                    〒150-0000 東京都渋谷区ダミー1-2-3<br>
+                    スクールビルディング 4F
+                </p>
+            </div>
+            
+            <div class="footer__nav">
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">スクール案内</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="#features">当校の特徴</a></li>
+                        <li><a href="#courses">コース紹介</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#access">アクセス</a></li>
+                    </ul>
+                </div>
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">インフォメーション</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="#topics">最新トピックス</a></li>
+                        <li><a href="#schedule">検定スケジュール</a></li>
+                        <li><a href="#voices">生徒の声・卒業生の声</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">お問い合わせ</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="#request">無料資料請求</a></li>
+                        <li><a href="#contact">見学・説明会申込</a></li>
+                        <li><a href="#contact-form">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p class="footer__copyright">&copy; <span id="current-year">2026</span> Bloom Nail Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Micromodal Popup -->
+    <div class="modal micromodal-slide" id="modal-campaign" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-campaign-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-campaign-title">
+                        手ぶらでOK！無料体験会
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-campaign-content">
+                    <p>実際の授業の雰囲気を体験してみませんか？</p>
+                    <p>プロの講師がマンツーマンでネイルの基本をレクチャー。道具はすべて貸し出ししますので、手ぶらでお越しいただけます。</p>
+                    <a href="#contact" class="btn btn--primary btn--large w-100" style="margin-top: 1rem;" data-micromodal-close>今すぐ予約する</a>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky CTA (LP Tracing) -->
+    <aside class="sticky-cta" id="sticky-cta" aria-label="Quick Actions">
+        <div class="sticky-cta__inner">
+            <a href="#request" class="btn btn--primary sticky-cta__btn">
+                <span class="btn-microcopy">＼1分で完了!／</span>
+                無料資料請求
+            </a>
+            <button data-micromodal-trigger="modal-campaign" class="btn btn--accent sticky-cta__btn" aria-label="無料体験会">
+                <span class="btn-microcopy">手ぶらで参加OK♪</span>
+                無料体験会
+            </button>
+        </div>
+    </aside>
+    <!-- JavaScript Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <!-- New Dependencies for Restructure -->
+    <script src="https://unpkg.com/headroom.js@0.12.0/dist/headroom.min.js" defer></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js" defer></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./script.js" defer></script>
+</body>
+</html>

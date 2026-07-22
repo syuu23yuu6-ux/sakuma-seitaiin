@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1E3A8A;   /* Royal Blue (Trust & Professional) */
+  --color-secondary: #3B82F6; /* Clear Blue (Cleanliness & Health) */
+  --color-accent: #D97706;    /* Amber Gold (Warm Accent for CTA) */
+  --color-dark: #0F172A;      /* Slate Dark (Deep Premium Text/Headers) */
+  --color-soft: #EFF6FF;      /* Ice Blue (Clean Section BG) */
+
+  --font-serif: 'Outfit', sans-serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-display: 'M PLUS Rounded 1c', sans-serif;
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-150%) skewX(-20deg);
+    }
+    100% {
+      transform: translateX(150%) skewX(-20deg);
+    }
+  }
+  --animate-shimmer: shimmer 3s infinite ease-in-out;
+}
+
+@utility btn-shimmer {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: var(--animate-shimmer);
+  }
+}
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    background-color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

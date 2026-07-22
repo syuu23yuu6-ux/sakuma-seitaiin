@@ -1,0 +1,96 @@
+{
+  "success": true,
+  "message": "「変更する」をクリックしました。500ms後の要素をリストします。",
+  "elements": [
+    {
+      "tagName": "DIV",
+      "className": "_wrapper_qnhs7_1 _warning_qnhs7_22",
+      "textContent": "notifications_none保存されていない変更があります",
+      "outerHTML": "<div class=\"_wrapper_qnhs7_1 _warning_qnhs7_22\" data-aria-hidden=\"true\" aria-hidden=\"true\"><i class=\"material-icons-outlined _icon_qnhs7_13\">notificat"
+    },
+    {
+      "tagName": "P",
+      "className": "_description_qnhs7_30",
+      "textContent": "保存されていない変更があります",
+      "outerHTML": "<p class=\"_description_qnhs7_30\">保存されていない変更があります</p>"
+    },
+    {
+      "tagName": "DIV",
+      "className": "_actions_1h2ti_37",
+      "textContent": "変更するこの設定をエクスポートする",
+      "outerHTML": "<div class=\"_actions_1h2ti_37\" data-aria-hidden=\"true\" aria-hidden=\"true\"><div class=\"_buttons_1h2ti_43\"><button class=\"_button_1h0wi_1 _primary_1h0wi"
+    },
+    {
+      "tagName": "DIV",
+      "className": "_buttons_1h2ti_43",
+      "textContent": "変更するこの設定をエクスポートする",
+      "outerHTML": "<div class=\"_buttons_1h2ti_43\"><button class=\"_button_1h0wi_1 _primary_1h0wi_57 _auto_1h0wi_34 ga-api-settings-schema\" type=\"button\" aria-haspopup=\"di"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "_button_1h0wi_1 _primary_1h0wi_57 _auto_1h0wi_34 ga-api-settings-schema",
+      "textContent": "変更する",
+      "outerHTML": "<button class=\"_button_1h0wi_1 _primary_1h0wi_57 _auto_1h0wi_34 ga-api-settings-schema\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria"
+    },
+    {
+      "tagName": "H2",
+      "className": "_title_17k5k_47",
+      "textContent": "APIスキーマの変更",
+      "outerHTML": "<h2 id=\"radix-:r1if:\" class=\"_title_17k5k_47\">APIスキーマの変更</h2>"
+    },
+    {
+      "tagName": "DIV",
+      "className": "_description_17k5k_51",
+      "textContent": "APIスキーマを変更してよろしいですか？フィールドを変更や削除した場合、APIレスポンスに破壊的な変更が生じる場合があります。設定変更後のデータの再インデックス処理が完了するまでの間、APIレスポンスに一時的な差異が生じる場合があります。また、コンテンツ数が多い場合は、処理完了までに時間を要することがあります。変更を実行するには、フォームに「site-settings」と入力してください。",
+      "outerHTML": "<div id=\"radix-:r1ig:\" class=\"_description_17k5k_51\"><p>APIスキーマを変更してよろしいですか？</p><ul class=\"_listBase_btmok_1 _bulletList_1eisw_1\"><li class=\"_itemBase"
+    },
+    {
+      "tagName": "P",
+      "className": "",
+      "textContent": "APIスキーマを変更してよろしいですか？",
+      "outerHTML": "<p>APIスキーマを変更してよろしいですか？</p>"
+    },
+    {
+      "tagName": "UL",
+      "className": "_listBase_btmok_1 _bulletList_1eisw_1",
+      "textContent": "フィールドを変更や削除した場合、APIレスポンスに破壊的な変更が生じる場合があります。設定変更後のデータの再インデックス処理が完了するまでの間、APIレスポンスに一時的な差異が生じる場合があります。また、コンテンツ数が多い場合は、処理完了までに時間を要することがあります。",
+      "outerHTML": "<ul class=\"_listBase_btmok_1 _bulletList_1eisw_1\"><li class=\"_itemBase_btmok_9\">フィールドを変更や削除した場合、APIレスポンスに破壊的な変更が生じる場合があります。</li><li class=\"_itemBase_b"
+    },
+    {
+      "tagName": "LI",
+      "className": "_itemBase_btmok_9",
+      "textContent": "フィールドを変更や削除した場合、APIレスポンスに破壊的な変更が生じる場合があります。",
+      "outerHTML": "<li class=\"_itemBase_btmok_9\">フィールドを変更や削除した場合、APIレスポンスに破壊的な変更が生じる場合があります。</li>"
+    },
+    {
+      "tagName": "LI",
+      "className": "_itemBase_btmok_9",
+      "textContent": "設定変更後のデータの再インデックス処理が完了するまでの間、APIレスポンスに一時的な差異が生じる場合があります。また、コンテンツ数が多い場合は、処理完了までに時間を要することがあります。",
+      "outerHTML": "<li class=\"_itemBase_btmok_9\">設定変更後のデータの再インデックス処理が完了するまでの間、APIレスポンスに一時的な差異が生じる場合があります。また、コンテンツ数が多い場合は、処理完了までに時間を要することがあります。</li>"
+    },
+    {
+      "tagName": "P",
+      "className": "",
+      "textContent": "変更を実行するには、フォームに「site-settings」と入力してください。",
+      "outerHTML": "<p>変更を実行するには、フォームに「site-settings」と入力してください。</p>"
+    },
+    {
+      "tagName": "DIV",
+      "className": "_actions_17k5k_61",
+      "textContent": "変更するキャンセル",
+      "outerHTML": "<div class=\"_actions_17k5k_61\"><button type=\"button\" class=\"_button_1h0wi_1 _danger_1h0wi_85 _auto_1h0wi_34\" aria-disabled=\"true\">変更する</button><button"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "_button_1h0wi_1 _danger_1h0wi_85 _auto_1h0wi_34",
+      "textContent": "変更する",
+      "outerHTML": "<button type=\"button\" class=\"_button_1h0wi_1 _danger_1h0wi_85 _auto_1h0wi_34\" aria-disabled=\"true\">変更する</button>"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "_button_1h0wi_1 _ghost_1h0wi_37 _auto_1h0wi_34 _cancelButton_17k5k_67",
+      "textContent": "キャンセル",
+      "outerHTML": "<button class=\"_button_1h0wi_1 _ghost_1h0wi_37 _auto_1h0wi_34 _cancelButton_17k5k_67\" type=\"button\" aria-disabled=\"false\">キャンセル</button>"
+    }
+  ]
+}
