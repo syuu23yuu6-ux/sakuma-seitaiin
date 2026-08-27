@@ -8,6 +8,8 @@ import { CourseDetails } from './CourseDetails';
 import { CampaignSection } from './CampaignSection';
 import { SelectionReasons } from './SelectionReasons';
 import { siteContent } from '../config/siteContent';
+import { updateHeadMetadata, insertJsonLd, removeJsonLd } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface LPPageProps {
   lpId: string;
@@ -16,17 +18,36 @@ interface LPPageProps {
 export function LPPage({ lpId }: LPPageProps) {
   const content = lpContent[lpId];
 
-  // メタデータ (Title / Description) の動的更新
+  // メタデータ (Title / Description / OGP) 及び MedicalWebPage 構造化データの動的更新
   useEffect(() => {
     if (content) {
-      document.title = content.title;
+      const canonicalUrl = `${window.location.origin}/lp/${lpId}`;
+      updateHeadMetadata({
+        title: content.title,
+        description: content.description,
+        canonicalUrl,
+        ogImage: content.heroImage,
+        ogType: 'article'
+      });
 
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', content.description);
-      }
+      insertJsonLd('medical-webpage-jsonld', {
+        '@context': 'https://schema.org',
+        '@type': 'MedicalWebPage',
+        name: content.title,
+        description: content.description,
+        url: canonicalUrl,
+        aspect: 'Treatment',
+        about: {
+          '@type': 'MedicalCondition',
+          name: content.mainCatch
+        }
+      });
     }
-  }, [content]);
+
+    return () => {
+      removeJsonLd('medical-webpage-jsonld');
+    };
+  }, [content, lpId]);
 
   // 万が一データが存在しない場合は404風の表示
   if (!content) {
@@ -54,6 +75,8 @@ export function LPPage({ lpId }: LPPageProps) {
 
   return (
     <div className="pt-20 bg-gray-50 overflow-x-hidden">
+      <Breadcrumbs items={[{ name: content.mainCatch || '症状別専門整体', url: `/lp/${lpId}` }]} />
+
       {/* 1. Hero / First View */}
       <section className="relative min-h-[75vh] flex items-center bg-dark text-white py-20">
         <div className="absolute inset-0 z-0">

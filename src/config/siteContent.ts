@@ -103,6 +103,9 @@ export interface SiteContent {
     tsuku2Url: string;
     ekitenUrl: string;
     suisoIryouUrl: string;
+    businessHours?: string;
+    closedDays?: string;
+    accessRoute?: string;
   };
 }
 
@@ -447,6 +450,9 @@ export const siteContent: SiteContent = {
     googleMapUrl: "https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA",
     tsuku2Url: "https://tsuku2.jp/sakuma",
     ekitenUrl: "https://www.ekiten.jp/shop_55884485/",
-    suisoIryouUrl: "https://suiso-iryou.com/"
+    suisoIryouUrl: "https://suiso-iryou.com/",
+    businessHours: "9:00 〜 13:00 / 14:00 〜 20:00（土日祝も対応 ※第2日曜を除く）",
+    closedDays: "毎週水曜、第２日曜",
+    accessRoute: "阪急京都線・大阪モノレール 南茨木駅より徒歩5分"
   }
 };

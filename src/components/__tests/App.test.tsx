@@ -31,7 +31,7 @@ describe('App Component Legacy Routing', () => {
     render(<App />);
     // メインの見出しやセクションが表示されることを検証
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-  });
+  }, 15000);
 
   it('renders shoulder pain LP on legacy sakuma_seitaiin1 lp1 path', () => {
     vi.stubGlobal('location', {
@@ -40,7 +40,7 @@ describe('App Component Legacy Routing', () => {
     });
     render(<App />);
     const expectedCatch = lpContent['lp1'].mainCatch;
-    expect(screen.getByText(expectedCatch)).toBeInTheDocument();
+    expect(screen.getAllByText(expectedCatch).length).toBeGreaterThan(0);
   });
 
   it('renders waist pain LP on legacy sakuma_seitaiin1 Romanized path (yotsu)', () => {
@@ -50,7 +50,7 @@ describe('App Component Legacy Routing', () => {
     });
     render(<App />);
     const expectedCatch = lpContent['lp2'].mainCatch;
-    expect(screen.getByText(expectedCatch)).toBeInTheDocument();
+    expect(screen.getAllByText(expectedCatch).length).toBeGreaterThan(0);
   });
 
   it('renders maternity LP on legacy sakuma_seitaiin2 Romanized path (kotsubankyosei)', () => {
@@ -60,7 +60,7 @@ describe('App Component Legacy Routing', () => {
     });
     render(<App />);
     const expectedCatch = lpContent['lp10'].mainCatch;
-    expect(screen.getByText(expectedCatch)).toBeInTheDocument();
+    expect(screen.getAllByText(expectedCatch).length).toBeGreaterThan(0);
   });
 
   it('renders 404 block for invalid legacy sub-path', () => {

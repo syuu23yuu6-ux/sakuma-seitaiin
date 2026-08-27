@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { siteContent } from '../config/siteContent';
 import { lpContent } from '../config/lpContent';
+import { updateHeadMetadata, insertJsonLd, removeJsonLd } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface NewsDetailProps {
   articleId: string;
@@ -12,19 +14,50 @@ export function NewsDetail({ articleId }: NewsDetailProps) {
   const newsList = siteContent.news;
   const article = newsList.find(item => item.id === articleId);
 
-  // メタデータ (Title / Description) の動的更新
+  // メタデータ (Title / Description / OGP) 及び BlogPosting 構造化データの動的更新
   useEffect(() => {
     if (article) {
-      document.title = `${article.title} | さくま整体院`;
+      const canonicalUrl = `${window.location.origin}/new_page/${article.id}`;
+      const plainText = article.content.replace(/<[^>]*>/g, '').substring(0, 120);
 
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        // HTMLタグを正規表現で除去してプレーンテキスト化
-        const plainText = article.content.replace(/<[^>]*>/g, '').substring(0, 120);
-        metaDesc.setAttribute('content', plainText);
-      }
+      updateHeadMetadata({
+        title: `${article.title} | さくま整体院`,
+        description: plainText,
+        canonicalUrl,
+        ogImage: article.thumbnail,
+        ogType: 'article'
+      });
+
+      insertJsonLd('blog-posting-jsonld', {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: article.title,
+        description: plainText,
+        image: article.thumbnail,
+        datePublished: article.dateValue || '2022-01-01',
+        author: {
+          '@type': 'Person',
+          name: siteContent.staff[0]?.name || '佐久ま 院長'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'さくま整体院',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://sakuma-seitaiin.jp/_img/ja/resource/3/logo/'
+          }
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl
+        }
+      });
     }
-  }, [article]);
+
+    return () => {
+      removeJsonLd('blog-posting-jsonld');
+    };
+  }, [article, articleId]);
 
   const handleBack = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -65,8 +98,14 @@ export function NewsDetail({ articleId }: NewsDetailProps) {
     .slice(0, 2);
 
   return (
-    <div className="py-32 bg-white min-h-screen">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <div className="pt-20 pb-32 bg-white min-h-screen">
+      <Breadcrumbs
+        items={[
+          { name: '新着ブログ・コラム', url: '/new_page' },
+          { name: article.title, url: `/new_page/${article.id}` }
+        ]}
+      />
+      <div className="container mx-auto px-4 max-w-3xl pt-8">
         {/* Back Link */}
         <a
           href="/new_page"

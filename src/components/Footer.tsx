@@ -59,7 +59,7 @@ export function Footer({}: FooterProps) {
             <div className="text-gray-400 text-sm leading-relaxed font-light space-y-2">
               <p>{address}</p>
               <p>TEL: {telNumber}</p>
-              <p>営業時間: 9:00〜13:00 / 14:00〜20:00（水曜・第2日曜定休）</p>
+              <p>営業時間: {siteContent.contacts.businessHours || '9:00〜13:00 / 14:00〜20:00（水曜・第2日曜定休）'}</p>
               <p className="text-xs text-gray-500">{parkingInfo}</p>
             </div>
           </div>

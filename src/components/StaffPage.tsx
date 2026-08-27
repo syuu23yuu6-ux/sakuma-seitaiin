@@ -1,8 +1,20 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { siteContent } from '../config/siteContent';
+import { updateHeadMetadata } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export function StaffPage() {
   const staffList = siteContent.staff;
+
+  // メタデータ (Title / Description / OGP) の動的更新
+  useEffect(() => {
+    updateHeadMetadata({
+      title: 'スタッフ・院長紹介 | さくま整体院',
+      description: 'さくま整体院の院長・スタッフ紹介。整体歴16年以上のベテラン院長がお客様のお悩みに寄り添った丁寧な手技施術を行います。',
+      canonicalUrl: `${window.location.origin}/staff`
+    });
+  }, []);
 
   const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -12,8 +24,9 @@ export function StaffPage() {
   };
 
   return (
-    <div className="py-32 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <div className="pt-20 pb-32 bg-gray-50 min-h-screen">
+      <Breadcrumbs items={[{ name: 'スタッフ・院長紹介', url: '/staff' }]} />
+      <div className="container mx-auto px-4 max-w-4xl pt-8">
         <div className="text-center mb-16">
           <span className="text-primary font-bold tracking-widest text-xs uppercase">Our Staff</span>
           <h1 className="text-3xl md:text-4xl font-bold font-display mt-2 text-dark">スタッフ・院長紹介</h1>

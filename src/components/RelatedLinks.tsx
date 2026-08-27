@@ -1,17 +1,24 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Mail, Store, Award, Star } from 'lucide-react';
+import { ExternalLink, Mail, Store, Award, Star, MapPin } from 'lucide-react';
 import { siteContent } from '../config/siteContent';
 
 export function RelatedLinks() {
-  const { mailMagazineUrl, tsuku2Url, ekitenUrl, suisoIryouUrl } = siteContent.contacts;
+  const { mailMagazineUrl, tsuku2Url, ekitenUrl, suisoIryouUrl, googleMapUrl } = siteContent.contacts;
 
   const links = [
     {
-      title: '無料メルマガ登録',
-      desc: 'お得な情報やセルフケア情報を配信中',
-      href: mailMagazineUrl,
-      icon: Mail,
-      color: 'bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white',
+      title: 'Google マップ（ルート案内）',
+      desc: '南茨木駅徒歩5分。経路・現在地からのルート確認',
+      href: googleMapUrl || 'https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA',
+      icon: MapPin,
+      color: 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-600 hover:text-white',
+    },
+    {
+      title: 'エキテン公式掲載ページ',
+      desc: '全国最大級の口コミ・店舗情報サイト',
+      href: ekitenUrl,
+      icon: Star,
+      color: 'bg-yellow-50 text-yellow-600 border-yellow-200 hover:bg-yellow-500 hover:text-white',
     },
     {
       title: 'ツクツク公式ショップ',
@@ -21,11 +28,11 @@ export function RelatedLinks() {
       color: 'bg-accent/10 text-accent border-accent/20 hover:bg-accent hover:text-white',
     },
     {
-      title: 'エキテン掲載ページ',
-      desc: '口コミや詳細情報がご覧いただけます',
-      href: ekitenUrl,
-      icon: Star,
-      color: 'bg-yellow-50 text-yellow-600 border-yellow-200 hover:bg-yellow-500 hover:text-white',
+      title: '無料メルマガ・ヘルスケア通信',
+      desc: 'セルフケア情報・お得なニュースを無料配信',
+      href: mailMagazineUrl,
+      icon: Mail,
+      color: 'bg-primary/10 text-primary border-primary/20 hover:bg-primary hover:text-white',
     },
     {
       title: '一般社団法人 水素医療研究所',
@@ -46,7 +53,7 @@ export function RelatedLinks() {
           <div className="w-10 h-0.5 bg-primary mx-auto mt-3 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {links.map((link, index) => {
             const Icon = link.icon;
             return (

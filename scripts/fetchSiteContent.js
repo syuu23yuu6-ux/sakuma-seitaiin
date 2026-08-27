@@ -107,6 +107,9 @@ export interface SiteContent {
     tsuku2Url: string;
     ekitenUrl: string;
     suisoIryouUrl: string;
+    businessHours?: string;
+    closedDays?: string;
+    accessRoute?: string;
   };
 }`;
 
@@ -429,7 +432,10 @@ export const fallbackContent = {
     googleMapUrl: 'https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA',
     tsuku2Url: 'https://tsuku2.jp/sakuma',
     ekitenUrl: 'https://www.ekiten.jp/shop_55884485/',
-    suisoIryouUrl: 'https://suiso-iryou.com/'
+    suisoIryouUrl: 'https://suiso-iryou.com/',
+    businessHours: '9:00 〜 13:00 / 14:00 〜 20:00（土日祝も対応 ※第2日曜を除く）',
+    closedDays: '毎週水曜、第２日曜',
+    accessRoute: '阪急京都線・大阪モノレール 南茨木駅より徒歩5分'
   }
 };
 
@@ -579,7 +585,10 @@ function mapApiResponse(settings, menus, staff, faq, news, dictionary) {
     mailMagazineUrl: 'https://home.tsuku2.jp/mlReg/?scd=0000161402',
     tsuku2Url: 'https://tsuku2.jp/sakuma',
     ekitenUrl: 'https://www.ekiten.jp/shop_55884485/',
-    suisoIryouUrl: 'https://suiso-iryou.com/'
+    suisoIryouUrl: 'https://suiso-iryou.com/',
+    businessHours: settings.businessHours || fallbackContent.contacts.businessHours,
+    closedDays: settings.closedDays || fallbackContent.contacts.closedDays,
+    accessRoute: settings.accessRoute || fallbackContent.contacts.accessRoute
   };
 
   return {
@@ -637,6 +646,17 @@ tsTypes + '\n\n' +
 
     fs.writeFileSync(outputPath, fileContent, 'utf8');
     console.log('Successfully generated siteContent.ts!');
+
+    // sitemap.xml の自動更新
+    try {
+      const { generateSitemapXML } = await import('./generateSitemap.js');
+      const sitemapXml = generateSitemapXML(siteContentData);
+      const sitemapPath = path.resolve(__dirname, '../public/sitemap.xml');
+      fs.writeFileSync(sitemapPath, sitemapXml, 'utf8');
+      console.log('Successfully generated sitemap.xml!');
+    } catch (sitemapErr) {
+      console.error('Error generating sitemap.xml:', sitemapErr);
+    }
   } catch (err) {
     console.error('Error writing siteContent.ts:', err);
     throw err;

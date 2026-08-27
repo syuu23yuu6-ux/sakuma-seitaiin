@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 import { siteContent } from '../config/siteContent';
+import { updateHeadMetadata, insertJsonLd, removeJsonLd } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 interface DictionaryDetailProps {
   keyword: string;
@@ -11,18 +13,33 @@ export function DictionaryDetail({ keyword }: DictionaryDetailProps) {
   const dictionaryList = siteContent.dictionary;
   const item = dictionaryList.find(d => d.keyword === keyword);
 
-  // メタデータ (Title / Description) の動的更新
+  // メタデータ (Title / Description / OGP) 及び DefinedTerm 構造化データの動的更新
   useEffect(() => {
     if (item) {
-      document.title = `${item.keyword}とは？原因と施術解説 | 用語集 | さくま整体院`;
+      const canonicalUrl = `${window.location.origin}/dictionary/${encodeURIComponent(item.keyword)}`;
+      const plainText = item.description.replace(/<[^>]*>/g, '').substring(0, 120);
 
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        const plainText = item.description.replace(/<[^>]*>/g, '').substring(0, 120);
-        metaDesc.setAttribute('content', plainText);
-      }
+      updateHeadMetadata({
+        title: `${item.keyword}とは？原因と施術解説 | 用語集 | さくま整体院`,
+        description: plainText,
+        canonicalUrl,
+        ogType: 'article'
+      });
+
+      insertJsonLd('defined-term-jsonld', {
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name: item.keyword,
+        description: plainText,
+        url: canonicalUrl,
+        inDefinedTermSet: 'さくま整体院 症状・用語辞典'
+      });
     }
-  }, [item]);
+
+    return () => {
+      removeJsonLd('defined-term-jsonld');
+    };
+  }, [item, keyword]);
 
   const handleBack = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -56,8 +73,14 @@ export function DictionaryDetail({ keyword }: DictionaryDetailProps) {
   }
 
   return (
-    <div className="py-32 bg-white min-h-screen">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <div className="pt-20 pb-32 bg-white min-h-screen">
+      <Breadcrumbs
+        items={[
+          { name: '症状・用語辞典', url: '/dictionary' },
+          { name: item.keyword, url: `/dictionary/${encodeURIComponent(item.keyword)}` }
+        ]}
+      />
+      <div className="container mx-auto px-4 max-w-3xl pt-8">
         {/* Back Link */}
         <a
           href="/dictionary"

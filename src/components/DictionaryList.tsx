@@ -1,9 +1,21 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen } from 'lucide-react';
 import { siteContent } from '../config/siteContent';
+import { updateHeadMetadata } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export function DictionaryList() {
   const dictionaryList = siteContent.dictionary;
+
+  // メタデータ (Title / Description / OGP) の動的更新
+  useEffect(() => {
+    updateHeadMetadata({
+      title: '症状・専門用語集 | さくま整体院',
+      description: 'さくま整体院で用いる用語や、身体の痛み・ゆがみの原因に関する解説の一覧です。肩こり・腰痛・膝痛・しびれなどの症状原因を詳しく説明します。',
+      canonicalUrl: `${window.location.origin}/dictionary`
+    });
+  }, []);
 
   const handleKeywordClick = (keyword: string) => {
     window.history.pushState({}, '', `/dictionary/${encodeURIComponent(keyword)}`);
@@ -12,8 +24,9 @@ export function DictionaryList() {
   };
 
   return (
-    <div className="py-32 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <div className="pt-20 pb-32 bg-gray-50 min-h-screen">
+      <Breadcrumbs items={[{ name: '症状・用語辞典', url: '/dictionary' }]} />
+      <div className="container mx-auto px-4 max-w-4xl pt-8">
         <div className="text-center mb-16">
           <span className="text-primary font-bold tracking-widest text-xs uppercase">Chiropractic Dictionary</span>
           <h1 className="text-3xl md:text-4xl font-bold font-display mt-2 text-dark">専門用語集</h1>

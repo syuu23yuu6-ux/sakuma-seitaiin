@@ -23,39 +23,42 @@ import { DictionaryList } from './components/DictionaryList';
 import { DictionaryDetail } from './components/DictionaryDetail';
 import { StaffPage } from './components/StaffPage';
 import { LPPage } from './components/LPPage';
+import { insertJsonLd, removeJsonLd, updateHeadMetadata } from './utils/seoUtils';
 import { PrivacyPage } from './components/PrivacyPage';
+import { siteContent } from './config/siteContent';
+import { initAnalytics, trackPageView, setGoogleSiteVerification } from './utils/analytics';
 
 function App() {
   const [path, setPath] = useState(window.location.pathname);
 
-  // SPA ルーティングの監視
+  // 初期化: GA4 タグ、Search Console 検証タグの自動ロード
+  useEffect(() => {
+    initAnalytics();
+    setGoogleSiteVerification();
+  }, []);
+
+  // SPA ルーティングの監視と PV イベント自動送信
   useEffect(() => {
     const handlePopState = () => {
-      setPath(window.location.pathname);
+      const currentPath = window.location.pathname;
+      setPath(currentPath);
+      trackPageView(currentPath);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Google 構造化データ (JSON-LD) の動的適用
+  // Google 構造化データ (JSON-LD: MedicalBusiness 強化版) の動的適用
   useEffect(() => {
-    const existingScript = document.getElementById('local-business-jsonld');
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    const script = document.createElement('script');
-    script.id = 'local-business-jsonld';
-    script.type = 'application/ld+json';
-    script.innerHTML = JSON.stringify({
+    insertJsonLd('local-business-jsonld', {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
-      "name": "さくま整体院",
+      "name": siteContent.contacts.logoText || "さくま整体院",
       "alternateName": "さくませいたいいん",
       "image": "https://sakuma-seitaiin.jp/_img/ja/cms/44736/image/___//",
       "@id": "https://sakuma-seitaiin.jp/#website",
       "url": "https://sakuma-seitaiin.jp",
-      "telephone": "050-8881-4880",
+      "telephone": siteContent.contacts.telNumber,
       "priceRange": "¥3000-¥5000",
       "address": {
         "@type": "PostalAddress",
@@ -69,35 +72,61 @@ function App() {
         "latitude": 34.802111,
         "longitude": 135.578643
       },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "茨木市" },
+        { "@type": "AdministrativeArea", "name": "高槻市" },
+        { "@type": "AdministrativeArea", "name": "吹田市" },
+        { "@type": "AdministrativeArea", "name": "摂津市" }
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
+          "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "09:00",
           "closes": "20:00"
         }
       ],
       "sameAs": [
-        "https://s.ekiten.jp/shop_55884485"
-      ]
+        siteContent.contacts.ekitenUrl,
+        siteContent.contacts.tsuku2Url,
+        siteContent.contacts.suisoIryouUrl
+      ].filter(Boolean)
     });
-    document.head.appendChild(script);
 
     return () => {
-      const scriptToRemove = document.getElementById('local-business-jsonld');
-      if (scriptToRemove) {
-        scriptToRemove.remove();
-      }
+      removeJsonLd('local-business-jsonld');
     };
   }, []);
+
+  // パス変更に伴うデフォルトメタデータの更新
+  useEffect(() => {
+    const cleanPath = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+    if (cleanPath === '/') {
+      updateHeadMetadata({
+        title: 'さくま整体院 | 茨木市で体内から健康を整える根本改善整体',
+        description: '大阪府茨木市のさくま整体院。インナーマッスルを徹底的に緩めることで、慢性的な肩こり・腰痛・頭痛などを短期間で根本改善します。南茨木駅近く、無料駐車場あり。',
+        canonicalUrl: 'https://sakuma-seitaiin.jp/'
+      });
+    } else if (cleanPath === '/menu') {
+      updateHeadMetadata({
+        title: '施術メニュー・料金 | さくま整体院',
+        description: 'さくま整体院の施術メニューと料金のご案内。全身バランス整体コース初回限定特別価格あり。',
+        canonicalUrl: 'https://sakuma-seitaiin.jp/menu'
+      });
+    } else if (cleanPath === '/access') {
+      updateHeadMetadata({
+        title: '当院へのアクセス | さくま整体院',
+        description: '大阪府茨木市天王2-9-12 スミエール21 1階。阪急南茨木駅より徒歩5分。無料専用駐車場完備。',
+        canonicalUrl: 'https://sakuma-seitaiin.jp/access'
+      });
+    } else if (cleanPath === '/contact') {
+      updateHeadMetadata({
+        title: 'ネット予約・お問合せ | さくま整体院',
+        description: 'さくま整体院の24時間対応ネット予約とお問合せフォーム。お電話でのお問い合わせも可能です。',
+        canonicalUrl: 'https://sakuma-seitaiin.jp/contact'
+      });
+    }
+  }, [path]);
 
   const renderPage = () => {
     // 末尾のスラッシュを取り除いて統一的に判定する

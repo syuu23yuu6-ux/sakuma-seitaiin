@@ -1,11 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { siteContent } from '../config/siteContent';
+import { insertJsonLd, removeJsonLd } from '../utils/seoUtils';
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const faqs = siteContent.faq;
+
+  // FAQPage 構造化データの動的生成
+  useEffect(() => {
+    if (faqs && faqs.length > 0) {
+      insertJsonLd('faq-page-jsonld', {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
+      });
+    }
+
+    return () => {
+      removeJsonLd('faq-page-jsonld');
+    };
+  }, [faqs]);
 
   return (
     <section id="faq" className="py-24 bg-white">

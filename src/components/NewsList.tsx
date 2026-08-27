@@ -1,21 +1,19 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { siteContent } from '../config/siteContent';
+import { updateHeadMetadata } from '../utils/seoUtils';
+import { Breadcrumbs } from './Breadcrumbs';
 
 export function NewsList() {
   const newsList = siteContent.news;
 
-  // メタデータ (Title / Description) の動的更新
+  // メタデータ (Title / Description / OGP) の動的更新
   useEffect(() => {
-    document.title = "新着ブログ・お知らせ | さくま整体院";
-
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'さくま整体院の新着ブログ・お知らせ一覧です。各症状に対するストレッチ対策や根本的な治療法について分かりやすく解説します。'
-      );
-    }
+    updateHeadMetadata({
+      title: '新着ブログ・お知らせ | さくま整体院',
+      description: 'さくま整体院の新着ブログ・お知らせ一覧です。各症状に対するストレッチ対策や根本的な治療法について分かりやすく解説します。',
+      canonicalUrl: `${window.location.origin}/new_page`
+    });
   }, []);
 
   const handleArticleClick = (id: string) => {
@@ -25,8 +23,9 @@ export function NewsList() {
   };
 
   return (
-    <div className="py-32 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <div className="pt-20 pb-32 bg-gray-50 min-h-screen">
+      <Breadcrumbs items={[{ name: '新着ブログ・お知らせ', url: '/new_page' }]} />
+      <div className="container mx-auto px-4 max-w-5xl pt-8">
         <div className="text-center mb-16">
           <span className="text-primary font-bold tracking-widest text-xs uppercase">News & Blog</span>
           <h1 className="text-3xl md:text-4xl font-bold font-display mt-2 text-dark">新着ブログ・お知らせ</h1>

@@ -6,7 +6,9 @@ export function AccessTabs() {
     name: siteContent.contacts.logoText || "さくま整体院",
     address: siteContent.contacts.address,
     tel: siteContent.contacts.telNumber,
-    access: "阪急京都線・大阪モノレール 南茨木駅より徒歩5分",
+    access: siteContent.contacts.accessRoute || "阪急京都線・大阪モノレール 南茨木駅より徒歩5分",
+    hours: siteContent.contacts.businessHours || "9:00 〜 13:00 / 14:00 〜 20:00（土日祝も対応 ※第2日曜を除く）",
+    closed: siteContent.contacts.closedDays || "毎週水曜、第２日曜",
     parking: siteContent.contacts.parkingInfo || "無料専用駐車場あり",
     mapUrl: siteContent.contacts.googleMapUrl || "https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA"
   };
@@ -58,13 +60,13 @@ export function AccessTabs() {
                 <div>
                   <h4 className="text-xs font-bold text-accent tracking-widest uppercase mb-1">営業時間</h4>
                   <p className="text-gray-600 text-sm md:text-base whitespace-pre-line leading-relaxed font-light">
-                    9:00 〜 13:00 / 14:00 〜 20:00（土日祝も対応 ※第2日曜を除く）
+                    {campus.hours}
                   </p>
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-accent tracking-widest uppercase mb-1">定休日</h4>
                   <p className="text-gray-600 text-sm md:text-base whitespace-pre-line leading-relaxed font-light">
-                    毎週水曜、第２日曜
+                    {campus.closed}
                   </p>
                 </div>
                 <div>

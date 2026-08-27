@@ -9,12 +9,13 @@ describe('RelatedLinks Component', () => {
 
     expect(screen.getByText('関連リンク・外部サービス')).toBeInTheDocument();
 
-    const { mailMagazineUrl, tsuku2Url, ekitenUrl, suisoIryouUrl } = siteContent.contacts;
+    const { mailMagazineUrl, tsuku2Url, ekitenUrl, suisoIryouUrl, googleMapUrl } = siteContent.contacts;
 
     const links = [
-      { text: '無料メルマガ登録', href: mailMagazineUrl },
+      { text: 'Google マップ（ルート案内）', href: googleMapUrl || 'https://maps.app.goo.gl/Fcr4mYza3wd5tcUZA' },
+      { text: 'エキテン公式掲載ページ', href: ekitenUrl },
       { text: 'ツクツク公式ショップ', href: tsuku2Url },
-      { text: 'エキテン掲載ページ', href: ekitenUrl },
+      { text: '無料メルマガ・ヘルスケア通信', href: mailMagazineUrl },
       { text: '一般社団法人 水素医療研究所', href: suisoIryouUrl },
     ];
 
