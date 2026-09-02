@@ -122,7 +122,7 @@ export function Hero() {
               onClick={(e) => handleCtaClick(e, ctaPrimary.href)}
               target={ctaPrimary.href.startsWith('http') ? "_blank" : undefined}
               rel={ctaPrimary.href.startsWith('http') ? "noopener noreferrer" : undefined}
-              className="px-8 py-4 bg-accent text-white rounded-full font-bold tracking-widest hover:bg-white hover:text-accent transition-colors shadow-lg hover:shadow-xl text-center text-sm md:text-base btn-shimmer"
+              className="px-8 py-4 bg-primary text-white rounded-full font-bold tracking-widest hover:bg-white hover:text-primary transition-colors shadow-lg hover:shadow-xl text-center text-sm md:text-base btn-shimmer"
             >
               {ctaPrimary.text}
             </a>
