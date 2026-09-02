@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sakuma-seitaiin.jp/sitemap.xml
+Sitemap: https://sakuma-seitaiin.pages.dev/sitemap.xml
