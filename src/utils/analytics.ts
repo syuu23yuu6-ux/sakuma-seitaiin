@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-8Q4Q0BYTPM';
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-E06Z7T6B4S';
 
 /**
  * GA4 (Google Analytics 4) gtag.js スクリプトを初期化する
